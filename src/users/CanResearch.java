@@ -1,6 +1,9 @@
 package users;
 
 import java.util.Vector;
+import papers.ResearchPaper;
+import utils.FundingRequest;
+
 import java.util.Comparator;
 
 public interface CanResearch {
