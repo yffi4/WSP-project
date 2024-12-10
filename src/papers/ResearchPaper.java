@@ -16,7 +16,7 @@ public class ResearchPaper {
 
     public ResearchPaper() {
     }
-
+  
     public int getDoi() {
         return doi;
     }
@@ -25,25 +25,7 @@ public class ResearchPaper {
         this.doi = doi;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Vector<Researcher> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(Vector<Researcher> authors) {
-        this.authors = authors;
-    }
-
-    public Vector<String> getPages() {
-        return pages;
-    }
+    
 
     public void setPages(Vector<String> pages) {
         this.pages = pages;

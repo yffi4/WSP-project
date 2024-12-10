@@ -1,45 +1,74 @@
 package users;
 
+
 import java.awt.print.Paper;
+
+
+
+import Database.Database;
+import enums.UserType;
+import journal.Journal;
+import journal.Subscriber;
+import utils.News;
+import utils.Post;
+
+import java.util.Date;
 import java.util.Vector;
+import java.util.concurrent.Flow;
+import java.util.stream.Collectors;
+
+
 
 import journal.Subscriber;
 import utils.News;
 
-public class User implements Subscriber, CanBecomeResearcher {
-    private Integer id;
-    private String email;
+
+public abstract class User implements Subscriber,  CanBecomeResearcher, Comparable<User> {
+
+
     private String name;
     private String lastName;
     private String password;
 
+
     public Integer getId() {
-        return this.id;
+        return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    
+
+    
+
+    
+
+    
+
+    private Vector<Post> notifications;
+
+
+
+    public User(String name, String lastName, String password) {
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
+        this.notifications = new Vector<>();
     }
 
-    // Make these public if you need them accessible:
-    public String getEmail() {
-        return this.email;
+    public User() {
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public User(String name, String lastName) {
+
+        this.name = name;
+        this.lastName = lastName;
     }
 
-    public String getName() {
-        return this.name;
-    }
+
+    
 
     public void setName(String name) {
         this.name = name;
-    }
 
-    public String getLastName() {
-        return this.lastName;
     }
 
     public void setLastName(String lastName) {
@@ -47,35 +76,93 @@ public class User implements Subscriber, CanBecomeResearcher {
     }
 
     public String getPassword() {
-        return this.password;
+
+        return password;
+
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public String login(String email, String password) {
-        // TODO
+
+    
+
+   
+
+    
+
+
+
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+    //                          Operations
+    
+    /**
+    * @generated
+    */
+    public String login() {
+        //TODO
         return "";
     }
 
+    
+
     public Vector<News> ViewNews() {
-        // TODO
-        return null;
+
+        return Database.DATA.getNews().stream().sorted().collect(Collectors.toCollection(Vector::new));
+    }
+    
+    
+    public void reviewPapers() {
+        //TODO
+        
+    }
+    public Vector<Post> readNotifications(){
+        Vector<Post> allNotifications = new Vector<>(notifications);
+        notifications.clear();
+        return allNotifications;
     }
 
-    public void reviewPapers(Paper p) {
-        // TODO
+    public void subscribe(Journal journal){
+        if (journal != null && !journal.getSubscribers().contains(this)){
+            journal.getSubscribers().add(this);
+        }
+    }
+    public void unsubscribe(Journal journal){
+        if (journal != null && journal.getSubscribers().contains(this)){
+            journal.getSubscribers().remove(this);
+        }
+    }
+    public void addComment(News news, String comment){
+        if (news == null) {
+            throw new IllegalArgumentException("News cannot be null.");
+        }
+        if (comment == null || comment.trim().isEmpty()) {
+            throw new IllegalArgumentException("Comment cannot be empty.");
+        }
+
+
+        Post commentPost = new Post(new Date(), comment, this);
+
+        // Добавляем комментарий в список News
+        news.getComments().add(commentPost);
+
+        System.out.println("Comment added successfully: " + commentPost);
+
     }
 
     @Override
-    public void becomeResearcher() {
-        // TODO
+    public int compareTo(User o) {
+        return 0;
     }
 
-	@Override
-	public void subscribe() {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

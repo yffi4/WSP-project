@@ -1,5 +1,6 @@
 package factories;
 
+
 import enums.Faculty;
 import enums.ManagerType;
 import enums.TeacherType;
@@ -7,29 +8,29 @@ import users.Student;
 import users.Teacher;
 import users.User;
 
+
+
+import enums.UserType;
+import users.*;
+
+
 public class UserFactory {
+    public static User getUser(String firstName, String lastName, UserType userType) {
+        if (userType.equals(UserType.MANAGER)) {
+            return new Manager(firstName, lastName);
+        } else if (userType.equals(UserType.ADMIN)) {
+            return new Admin(firstName, lastName);
+        } else if (userType.equals(UserType.STUDENT)) {
+            return new Student(firstName, lastName);
+        } else if (userType.equals(UserType.DEAN)) {
+            return new Dean(firstName, lastName);
+        } else if (userType.equals(UserType.TEACHER)) {
+            return new Teacher(firstName, lastName);
+        } else if (userType.equals(UserType.RESEARCHER)) {
+            return new Researcher(firstName, lastName);
+        }
 
-    public User getUser(String firstName, String lastName, String userType) {
-        return new User();
-    }
+        return null;
 
-    public User getUser(String firstName, String lastName, ManagerType managerType) {
-        return new User();
-    }
-
-    public User getUser(String firstName, String lastName, String teacherFirstName, String teacherLastName, TeacherType teacherType) {
-        return new User();
-    }
-
-    public User getUser(String firstName, String lastName, String userType, Faculty faculty) {
-        return new User();
-    }
-
-    public User getUser(Student student) {
-        return new User();
-    }
-
-    public User getUser(Teacher teacher) {
-        return new User();
     }
 }

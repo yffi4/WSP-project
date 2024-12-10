@@ -1,7 +1,18 @@
 package users;
 
+
+
+
+
+
+
+import utils.Post;
+
 import java.util.Comparator;
 import java.util.Vector;
+
+
+
 
 import academicUtilites.Course;
 import academicUtilites.GPA;
@@ -16,32 +27,46 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
     private Faculty faculty;
     private Researcher ResearcherSupervisor;
 
-    private String getStudentId() {
-        return this.studentId;
+
+    
+
+    public Student(String name, String lastName) {
+        super(name, lastName);
     }
 
-    private void setStudentId(String studentId) {
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
-    private Faculty getFaculty() {
-        return this.faculty;
+    public Faculty getFaculty() {
+        return faculty;
     }
 
-    private void setFaculty(Faculty faculty) {
+    public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
     }
 
-    private Researcher getResearcherSupervisor() {
-        return this.ResearcherSupervisor;
+    public Researcher getResearcherSupervisor() {
+        return ResearcherSupervisor;
     }
 
-    private void setResearcherSupervisor(Researcher ResearcherSupervisor) {
-        this.ResearcherSupervisor = ResearcherSupervisor;
+    public void setResearcherSupervisor(Researcher researcherSupervisor) {
+        ResearcherSupervisor = researcherSupervisor;
     }
 
-    public void RegisterForCourse(Course c) {
-        // TODO
+
+    //                          Operations
+    
+    /**
+    * @generated
+    */
+    public void RegisterForCourse() {
+
+
     }
 
     public Vector<Course> ViewMyCourses() {
@@ -59,12 +84,20 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
         return null;
     }
 
-    public void RateTeacher(Teacher t, Integer rating) {
-        // TODO
-    }
+    
+    /**
+    * @generated
+    */
+    public void RateTeacher() {
 
-    public void pickResearcherSupervisor(Researcher r) {
-        // TODO
+    }
+    
+    /**
+    * @generated
+    */
+    public void pickResearcherSupervisor() {
+
+
     }
 
     public ResearchProject getDiplomaProject() {
@@ -72,8 +105,17 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
         return null;
     }
 
-    public void startOrganisation(String name) {
+
+   
         // TODO
+
+    
+    /**
+    * @generated
+    */
+    public void startOrganisation () {
+
+
     }
 
     public GPA getGPA() {
@@ -92,15 +134,29 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
 		return null;
 	}
 
-	@Override
-	public Vector<Teacher> viewTeacher(Comparator<Teacher> comparator) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public Vector<Course> viewCourse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+    @Override
+    public void update(Post p) {
+
+    }
+
+    
+
+    
+
+    
+
+    @Override
+    public void becomeResearcher() {
+
+    }
+
 }

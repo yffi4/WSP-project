@@ -1,42 +1,74 @@
 package utils;
 
-import java.sql.Date;
-
 import users.User;
 
-public class Post implements Comparable<Post> {
+import java.io.Serializable;
+import java.util.Date;
+
+
+
+
+/**
+* @generated
+*/
+public class Post implements Comparable<Post>, Serializable {
+    
+    /**
+    * @generated
+    */
     private Date date;
+    
+    /**
+    * @generated
+    */
     private String content;
+    
+    /**
+    * @generated
+    */
     private User author;
 
-    private Date getDate() {
-        return this.date;
+    public Post(Date date, String content, User author) {
+        this.date = date;
+        this.content = content;
+        this.author = author;
+    }
+    public Post(String content, User author) {
+
+        this.content = content;
+        this.author = author;
     }
 
-    private void setDate(Date date) {
+
+    public Post() {
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    private String getContent() {
-        return this.content;
+    public String getContent() {
+        return content;
     }
 
-    private void setContent(String content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
-    private User getAuthor() {
-        return this.author;
+    public User getAuthor() {
+        return author;
     }
 
-    private void setAuthor(User author) {
+    public void setAuthor(User author) {
         this.author = author;
     }
 
     @Override
-    public int compareTo(Post other) {
-        // TODO: Implement comparison logic
-        // For now, return 0 indicating equality
+    public int compareTo(Post o) {
         return 0;
     }
 }

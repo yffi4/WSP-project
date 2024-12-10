@@ -1,13 +1,41 @@
 package users;
 
+
+import utils.Post;
+
+
+
+
+/**
+* @generated
+*/
+
 public class Researcher extends User {
     private Integer ResearcherId;
 
-    private Integer getResearcherId() {
-        return this.ResearcherId;
+   
+
+
+    public Integer getResearcherId() {
+        return ResearcherId;
     }
 
-    private void setResearcherId(Integer ResearcherId) {
-        this.ResearcherId = ResearcherId;
+    public void setResearcherId(Integer researcherId) {
+          this.ResearcherId = researcherId;
+    }
+
+    public Researcher(String name, String lastName) {
+        super(name, lastName);
+    }
+
+    @Override
+    public void update(Post p) {
+
+    }
+
+    @Override
+    public void becomeResearcher() {
+
+
     }
 }

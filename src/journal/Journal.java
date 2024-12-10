@@ -1,11 +1,14 @@
 package journal;
 
+
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
 
+
 public class Journal {
+
     private String title;
     private Integer journalId;
     private String publisher;
@@ -13,10 +16,25 @@ public class Journal {
     private List<Article> articles;
     private Publish publish;
 
+
  
-    public Journal() {
-        this.articles = new Vector<>();
+    
+    
+    
+ 
+    private Vector<Subscriber> subscribers;
+
+
+    public Vector<Subscriber> getSubscribers() {
+        return subscribers;
     }
+
+    public void setSubscribers(Vector<Subscriber> subscribers) {
+        this.subscribers = subscribers;
+    }
+
+
+    
 
 
     public Journal(String title, Integer journalId, String publisher, Date publicationDate, Publish publish) {

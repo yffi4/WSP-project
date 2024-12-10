@@ -1,78 +1,95 @@
 package utils;
 
-import java.util.Comparator;
-import java.util.Vector;
-
-import academicUtilites.Course;
+import Database.Database;
 import enums.NewsTopic;
-import enums.TeacherType;
-import permissions.CanViewCourse;
-import permissions.CanViewStudents;
-import users.Student;
+import papers.ResearchPaper;
+import users.Researcher;
+import users.User;
+
+import java.util.*;
 
 
-public class News extends EmployeePostPostComplaint implements CanViewCourse, CanViewStudents {
-    private TeacherType teacherType;
+/**
+* @generated
+*/
+public class News extends Post {
+    
+
+    
+    /**
+    * @generated
+    */
     private NewsTopic topic;
+
+
     private Vector<Post> comments;
 
-    private TeacherType getTeacherType() {
-        return this.teacherType;
-    }
-
-    private void setTeacherType(TeacherType teacherType) {
-        this.teacherType = teacherType;
-    }
-
-    private NewsTopic getTopic() {
-        return this.topic;
-    }
-
-    private void setTopic(NewsTopic topic) {
+    public News(NewsTopic topic, String content, User author){
+        super.setDate(new Date());
+        super.setContent(content);
+        super.setAuthor(author);
         this.topic = topic;
     }
 
-    private Vector<Post> getComments() {
-        return this.comments;
+    public NewsTopic getTopic() {
+        return topic;
     }
 
-    private void setComments(Vector<Post> comments) {
+    public void setTopic(NewsTopic topic) {
+        this.topic = topic;
+    }
+
+    public Vector<Post> getComments() {
+        return comments;
+    }
+
+    public void setComments(Vector<Post> comments) {
         this.comments = comments;
     }
+    //                          Operations
 
-    public void putMarks() {
-        // TODO
-    }
 
-    public double getRaiting() {
-        // TODO
-        return 0.0;
-    }
-
-    public void markAttendance() {
-        // TODO
-    }
 
     public News autoGenerate() {
-        // TODO
-        return null;
+        List<ResearchPaper> researchPapers = Database.DATA.getResearchPapers();
+
+
+
+        if (researchPapers.isEmpty()) {
+            return new News(NewsTopic.GENERAL, "No research papers found.", null);
+        }
+
+        // Подсчет цитирований для каждого автора
+        Map<User, Integer> authorCitations = new HashMap<>();
+        for (ResearchPaper paper : researchPapers) {
+            for (User author : paper.getAuthors()) {
+                authorCitations.put(
+                        author,
+                        authorCitations.getOrDefault(author, 0) + paper.getCitations()
+                );
+            }
+        }
+
+        // Поиск топового исследователя
+        Map.Entry<User, Integer> topAuthorEntry = authorCitations.entrySet()
+                .stream()
+                .max(Map.Entry.comparingByValue())
+                .orElse(null);
+
+        if (topAuthorEntry != null) {
+            User topAuthor = topAuthorEntry.getKey();
+            int totalCitations = topAuthorEntry.getValue();
+
+
+            String content = "Top Researcher: " + topAuthor.getName() +
+                    " has achieved " + totalCitations + " citations.";
+            return new News(NewsTopic.RESEARCH, content, topAuthor);
+        }
+
+
+        return new News(NewsTopic.GENERAL, "No top researcher could be identified.", null);
+
     }
 
-	@Override
-	public Vector<Student> viewStudent() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Vector<Student> viewStudent(Comparator<Student> comparator) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Vector<Course> viewCourse() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }
