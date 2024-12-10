@@ -1,103 +1,59 @@
 package papers;
 
+import java.util.Vector;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
+import users.Researcher;
 
-public class ResearchProject extends Employee implements CanViewStudents, CanViewCourse
-{
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private int projectId;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private String topic;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private Vector<ResearhPaper> publishedPapers;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private Researcher researchSupervisor;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private Vector<Researcher> participants;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public ResearchProject(){
-		super();
-	}
+public class ResearchProject {
+    private int projectId;
+    private String topic;
+    private Vector<ResearchPaper> publishedPapers;
+    private Researcher researchSupervisor;
+    private Vector<Researcher> participants;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void joinProject(Researcher parameter) {
-		// TODO implement me
-		return null;	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Researcher joinProject() {
-		// TODO implement me
-		return null;	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void markAttendance(Course parameter, Vector<Student> parameter2, boolean parameter3) {
-		// TODO implement me
-		return null;	
-	}
-	
+    public ResearchProject() {
+    }
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public Vector<ResearchPaper> getPublishedPapers() {
+        return publishedPapers;
+    }
+
+    public void setPublishedPapers(Vector<ResearchPaper> publishedPapers) {
+        this.publishedPapers = publishedPapers;
+    }
+
+    public Researcher getResearchSupervisor() {
+        return researchSupervisor;
+    }
+
+    public void setResearchSupervisor(Researcher researchSupervisor) {
+        this.researchSupervisor = researchSupervisor;
+    }
+
+    public Vector<Researcher> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(Vector<Researcher> participants) {
+        this.participants = participants;
+    }
+
+    public void joinProject(Researcher researcher) {
+    }
 }
-
