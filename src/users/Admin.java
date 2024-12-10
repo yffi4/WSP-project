@@ -13,10 +13,6 @@ public class Admin extends Employee implements CanSendRequests, CanBecomeResearc
         this.userLogs = userLogs;
     }
 
-    @Override
-    public void sendRequest(String request) {
-    }
-
     public void addUser() {
         // TODO
     }
@@ -34,5 +30,15 @@ public class Admin extends Employee implements CanSendRequests, CanBecomeResearc
     public String viewLogs() {
         // TODO
         return "";
+    }
+
+    @Override
+    public void sendRequest(String request) {
+        // TODO
+    }
+
+    @Override
+    public void becomeResearcher() {
+        // TODO
     }
 }
