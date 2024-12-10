@@ -1,100 +1,72 @@
-package users
+package users;
 
-diagram;
+import utils.Complaint;
+import utils.Proposal;
+import utils.Request;
+
+import java.util.Vector;
 
 
-/**
-* @generated
-*/
+
+
+
 public class Dean extends Employee {
     
-    /**
-    * @generated
-    */
+
     private Vector<Request> requests;
     
-    /**
-    * @generated
-    */
+
     private Vector<Proposal> proposals;
     
-    /**
-    * @generated
-    */
+
     private String department;
     
-    /**
-    * @generated
-    */
+
     private Vector<Complaint> complaints;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private Vector<Request> getRequests() {
-        return this.requests;
+
+    public Dean(String name, String lastName) {
+        super(name, lastName);
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Request> setRequests(Vector<Request> requests) {
+
+    public Vector<Request> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(Vector<Request> requests) {
         this.requests = requests;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Proposal> getProposals() {
-        return this.proposals;
+
+    public Vector<Proposal> getProposals() {
+        return proposals;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Proposal> setProposals(Vector<Proposal> proposals) {
+
+    public void setProposals(Vector<Proposal> proposals) {
         this.proposals = proposals;
     }
-    
-    /**
-    * @generated
-    */
-    private String getDepartment() {
-        return this.department;
+
+    public String getDepartment() {
+        return department;
     }
-    
-    /**
-    * @generated
-    */
-    private String setDepartment(String department) {
+
+    public void setDepartment(String department) {
         this.department = department;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Complaint> getComplaints() {
-        return this.complaints;
+
+    public Vector<Complaint> getComplaints() {
+        return complaints;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Complaint> setComplaints(Vector<Complaint> complaints) {
+
+    public void setComplaints(Vector<Complaint> complaints) {
         this.complaints = complaints;
     }
-    
 
-    //                          Operations                                  
+    //                          Operations
     
     /**
     * @generated
     */
     public void SignRequest() {
-        //TODO
-        return null;
+
     }
     
     /**
@@ -118,7 +90,7 @@ public class Dean extends Employee {
     */
     public void rejectRequest() {
         //TODO
-        return null;
+
     }
     
     /**

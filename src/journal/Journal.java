@@ -1,5 +1,7 @@
 package journal
 
+import java.util.Vector;
+
 diagram;
 
 
@@ -11,7 +13,7 @@ public class Journal {
     /**
     * @generated
     */
-    private invalid kdj;
+    private ;
     
     /**
     * @generated
@@ -72,9 +74,17 @@ public class Journal {
     /**
     * @generated
     */
-    private Subscriber subscriber;
-    
-    
+    private Vector<Subscriber> subscribers;
+
+
+    public Vector<Subscriber> getSubscribers() {
+        return subscribers;
+    }
+
+    public void setSubscribers(Vector<Subscriber> subscribers) {
+        this.subscribers = subscribers;
+    }
+
     /**
     * @generated
     */

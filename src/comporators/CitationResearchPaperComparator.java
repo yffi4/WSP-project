@@ -1,5 +1,9 @@
 package comporators
 
+import papers.ResearchPaper;
+
+import java.util.Comparator;
+
 diagram;
 
 

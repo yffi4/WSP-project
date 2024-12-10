@@ -1,397 +1,298 @@
 package Database;
 
-import java.io.Serializable;
+import academicUtilites.Course;
+import academicUtilites.Subject;
+import enums.Faculty;
+import enums.Language;
+import enums.Period;
+import journal.Journal;
+import office.DeanOffice;
+import papers.ResearchPaper;
+import papers.ResearchProject;
+import users.*;
+import utils.Credentials;
+import utils.News;
+
+import java.io.*;
+import java.util.HashMap;
+import java.util.Vector;
 
 public class Database implements Serializable {
 
     /**
-     * @generated
+     * the instance of Database
      */
-    private Database DATA;
+    public static Database DATA;
 
     /**
-     * @generated
+     * All users with their credentials
      */
-    private HashMap<Credentials, User> users;
+    private HashMap<Credentials, User> users = new HashMap<Credentials, User>();
 
     /**
-     * @generated
+     * All courses
      */
-    private Vector<Course>2 courses;
+    private Vector<Course> courses = new Vector<Course>();
 
     /**
-     * @generated
+     * All subjects
      */
-    private Vector<Subject> subjects;
+    private Vector<Subject> subjects = new Vector<Subject>();
 
     /**
-     * @generated
+     * All teachers
      */
-    private Vector<Teacher>2 teachers;
+    private Vector<Teacher> teachers = new Vector<Teacher>();
 
     /**
-     * @generated
+     * All researchers
      */
-    private Vector<Researcher>2 researchers;
+    private Vector<Researcher> researchers = new Vector<Researcher>();
 
     /**
-     * @generated
+     * All projects
      */
-    private Vector<ResearchProject>2 researchProjects;
+    private Vector<ResearchProject> researchProjects = new Vector<ResearchProject>();
 
     /**
-     * @generated
+     * All papers
      */
-    private Vector<ResearchPaper> researchPapers;
+    private Vector<ResearchPaper> researchPapers = new Vector<ResearchPaper>();
 
     /**
-     * @generated
+     * All students
      */
-    private Vector<Student>3 students;
+    private Vector<Student> students = new Vector<Student>();
 
     /**
-     * @generated
+     * news
      */
-    private Vector<News>2 news;
+    private Vector<News> news = new Vector<News>();
 
     /**
-     * @generated
+     * logs
      */
-    private Vector<String>2 logs;
+    private Vector<String> logs = new Vector<String>();
+
 
     /**
-     * @generated
+     * all dean's offices
      */
-    private HashMap<Faculty, DeansOffice> offices;
+    private HashMap<Faculty, DeanOffice> offices = new HashMap<Faculty, DeanOffice>();
 
     /**
-     * @generated
+     * rector
      */
-    private Dean rector;
+    private Dean rector = new Dean();
 
     /**
-     * @generated
+     *
      */
-    private HashMap<String, HashMap<Language, String>> languageData;
+    private HashMap<String, HashMap<Language, String>> languageData = new HashMap<String, HashMap<Language, String>>();
 
     /**
-     * @generated
+     * journals
      */
-    private Vector<Journals> journals;
+    private Vector<Journal> journals = new Vector<Journal>();
+
+
+
 
     /**
-     * @generated
-     */
-    private Researcher2 topCitedResearcher;
-
-    /**
-     * @generated
+     * periods
      */
     private Period period;
 
     /**
-     * @generated
+     *
      */
-    private Integer year;
+    private int year;
 
     /**
-     * @generated
+     *
      */
-    private Boolean registrationIsOpen;
+    private boolean registrationIsOpen;
 
+    private Researcher topCitedResearcher;
 
-
-    /**
-     * @generated
-     */
-    public Database(Singleton) getDATA() {
-        return this.DATA;
+    public Researcher getTopCitedResearcher() {
+        return topCitedResearcher;
     }
 
-    /**
-     * @generated
-     */
-    public Database(Singleton) setDATA(Database(Singleton) DATA) {
-        this.DATA = DATA;
+    public Vector<String> getLogs() {
+        return logs;
     }
 
-    /**
-     * @generated
-     */
-    private HashMap<Credentials, User> getUsers() {
-        return this.users;
-    }
-
-    /**
-     * @generated
-     */
-    private HashMap<Credentials, User> setUsers(HashMap<Credentials, User> users) {
-        this.users = users;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<Course>2 getCourses() {
-        return this.courses;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<Course>2 setCourses(Vector<Course>2 courses) {
-        this.courses = courses;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<Subject> getSubjects() {
-        return this.subjects;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<Subject> setSubjects(Vector<Subject> subjects) {
-        this.subjects = subjects;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<Teacher>2 getTeachers() {
-        return this.teachers;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<Teacher>2 setTeachers(Vector<Teacher>2 teachers) {
-        this.teachers = teachers;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<Researcher>2 getResearchers() {
-        return this.researchers;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<Researcher>2 setResearchers(Vector<Researcher>2 researchers) {
-        this.researchers = researchers;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<ResearchProject>2 getResearchProjects() {
-        return this.researchProjects;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<ResearchProject>2 setResearchProjects(Vector<ResearchProject>2 researchProjects) {
-        this.researchProjects = researchProjects;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<ResearchPaper> getResearchPapers() {
-        return this.researchPapers;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<ResearchPaper> setResearchPapers(Vector<ResearchPaper> researchPapers) {
-        this.researchPapers = researchPapers;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<Student>3 getStudents() {
-        return this.students;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<Student>3 setStudents(Vector<Student>3 students) {
-        this.students = students;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<News>2 getNews() {
-        return this.news;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<News>2 setNews(Vector<News>2 news) {
-        this.news = news;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<String>2 getLogs() {
-        return this.logs;
-    }
-
-    /**
-     * @generated
-     */
-    private Vector<String>2 setLogs(Vector<String>2 logs) {
+    public void setLogs(Vector<String> logs) {
         this.logs = logs;
     }
 
-    /**
-     * @generated
-     */
-    private HashMap<Faculty, DeansOffice> getOffices() {
-        return this.offices;
+    public HashMap<Credentials, User> getUsers() {
+        return users;
     }
 
-    /**
-     * @generated
-     */
-    private HashMap<Faculty, DeansOffice> setOffices(HashMap<Faculty, DeansOffice> offices) {
+    public void setUsers(HashMap<Credentials, User> users) {
+        this.users = users;
+    }
+
+    public Vector<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Vector<Course> courses) {
+        this.courses = courses;
+    }
+
+    public Vector<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Vector<Subject> subjects) {
+        this.subjects = subjects;
+    }
+
+    public Vector<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(Vector<Teacher> teachers) {
+        this.teachers = teachers;
+    }
+
+    public Vector<Researcher> getResearchers() {
+        return researchers;
+    }
+
+    public void setResearchers(Vector<Researcher> researchers) {
+        this.researchers = researchers;
+    }
+
+    public Vector<ResearchProject> getResearchProjects() {
+        return researchProjects;
+    }
+
+    public void setResearchProjects(Vector<ResearchProject> researchProjects) {
+        this.researchProjects = researchProjects;
+    }
+
+    public Vector<ResearchPaper> getResearchPapers() {
+        return researchPapers;
+    }
+
+    public void setResearchPapers(Vector<ResearchPaper> researchPapers) {
+        this.researchPapers = researchPapers;
+    }
+
+    public Vector<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Vector<Student> students) {
+        this.students = students;
+    }
+
+    public Vector<News> getNews() {
+        return news;
+    }
+
+    public void setNews(Vector<News> news) {
+        this.news = news;
+    }
+
+    public HashMap<Faculty, DeanOffice> getOffices() {
+        return offices;
+    }
+
+    public void setOffices(HashMap<Faculty, DeanOffice> offices) {
         this.offices = offices;
     }
 
-    /**
-     * @generated
-     */
-    private Dean getRector() {
-        return this.rector;
+    public Dean getRector() {
+        return rector;
     }
 
-    /**
-     * @generated
-     */
-    private Dean setRector(Dean rector) {
+    public void setRector(Dean rector) {
         this.rector = rector;
     }
 
-    /**
-     * @generated
-     */
-    private HashMap<String, HashMap<Language, String>> getLanguageData() {
-        return this.languageData;
+    public HashMap<String, HashMap<Language, String>> getLanguageData() {
+        return languageData;
     }
 
-    /**
-     * @generated
-     */
-    private HashMap<String, HashMap<Language, String>> setLanguageData(HashMap<String, HashMap<Language, String>> languageData) {
+    public void setLanguageData(HashMap<String, HashMap<Language, String>> languageData) {
         this.languageData = languageData;
     }
 
-    /**
-     * @generated
-     */
-    private Vector<Journals> getJournals() {
-        return this.journals;
+    public Vector<Journal> getJournals() {
+        return journals;
     }
 
-    /**
-     * @generated
-     */
-    private Vector<Journals> setJournals(Vector<Journals> journals) {
+    public void setJournals(Vector<Journal> journals) {
         this.journals = journals;
     }
 
-    /**
-     * @generated
-     */
-    private Researcher2 getTopCitedResearcher() {
-        return this.topCitedResearcher;
+    public Period getPeriod() {
+        return period;
     }
 
-    /**
-     * @generated
-     */
-    private Researcher2 setTopCitedResearcher(Researcher2 topCitedResearcher) {
-        this.topCitedResearcher = topCitedResearcher;
-    }
-
-    /**
-     * @generated
-     */
-    private Period getPeriod() {
-        return this.period;
-    }
-
-    /**
-     * @generated
-     */
-    private Period setPeriod(Period period) {
+    public void setPeriod(Period period) {
         this.period = period;
     }
 
-    /**
-     * @generated
-     */
-    private Integer getYear() {
-        return this.year;
+    public int getYear() {
+        return year;
     }
 
-    /**
-     * @generated
-     */
-    private Integer setYear(Integer year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
-    /**
-     * @generated
-     */
-    private Boolean getRegistrationIsOpen() {
-        return this.registrationIsOpen;
+    public boolean isRegistrationIsOpen() {
+        return registrationIsOpen;
     }
 
-    /**
-     * @generated
-     */
-    private Boolean setRegistrationIsOpen(Boolean registrationIsOpen) {
+    public void setRegistrationIsOpen(boolean registrationIsOpen) {
         this.registrationIsOpen = registrationIsOpen;
     }
 
-
-    //                          Operations
-
-    /**
-     * @generated
+    /**Deserialize database
+     * @return database written on the file
      */
-    public Database(Singleton) read() {
-        //TODO
-        return null;
+    public static Database read() throws IOException, ClassNotFoundException{
+        FileInputStream fis = new FileInputStream("data");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        return (Database) ois.readObject();
     }
 
-    /**
-     * @generated
-     */
-    public void write() {
-        //TODO
-        return null;
+    //Serialize database
+    public static void write() throws IOException{
+        FileOutputStream fos = new FileOutputStream("data");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(DATA);
+        oos.close();
+    }
+    static {
+        if (new File("data").exists()){
+            try{
+                DATA = read();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }else DATA = new Database();
+
+    }
+    private Database(){
+
     }
 
-    /**
-     * @generated
-     */
+    @Override
+    public String toString() {
+        return "Database{Top Secret}";
+    }
+
     public void UpdateTime() {
         //TODO
-        return null;
+
     }
 
 

@@ -1,17 +1,18 @@
-package users
+package users;
 
-diagram;
+import utils.Post;
 
 
 /**
 * @generated
 */
 public class Employee extends User {
-    
-    
-    
+    public Employee(String name, String lastName) {
+        super(name, lastName);
+    }
 
-    //                          Operations                                  
+
+    //                          Operations
     
     /**
     * @generated
@@ -20,6 +21,15 @@ public class Employee extends User {
         //TODO
         return "";
     }
-    
-    
+
+
+    @Override
+    public void update(Post p) {
+
+    }
+
+    @Override
+    public void becomeResearcher() {
+
+    }
 }

@@ -1,105 +1,93 @@
-package utils
+package utils;
 
-diagram;
+import Database.Database;
+import enums.NewsTopic;
+import papers.ResearchPaper;
+import users.Researcher;
+import users.User;
+
+import java.util.*;
 
 
 /**
 * @generated
 */
-public class News extends EmployeePostPostComplaint implements CanViewCourse, CanViewStudents {
+public class News extends Post {
     
-    /**
-    * @generated
-    */
-    private TeacherType teacherType;
+
     
     /**
     * @generated
     */
     private NewsTopic topic;
-    
-    /**
-    * @generated
-    */
+
+
     private Vector<Post> comments;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private TeacherType getTeacherType() {
-        return this.teacherType;
-    }
-    
-    /**
-    * @generated
-    */
-    private TeacherType setTeacherType(TeacherType teacherType) {
-        this.teacherType = teacherType;
-    }
-    
-    /**
-    * @generated
-    */
-    private NewsTopic getTopic() {
-        return this.topic;
-    }
-    
-    /**
-    * @generated
-    */
-    private NewsTopic setTopic(NewsTopic topic) {
+
+    public News(NewsTopic topic, String content, User author){
+        super.setDate(new Date());
+        super.setContent(content);
+        super.setAuthor(author);
         this.topic = topic;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Post> getComments() {
-        return this.comments;
+
+    public NewsTopic getTopic() {
+        return topic;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Post> setComments(Vector<Post> comments) {
+
+    public void setTopic(NewsTopic topic) {
+        this.topic = topic;
+    }
+
+    public Vector<Post> getComments() {
+        return comments;
+    }
+
+    public void setComments(Vector<Post> comments) {
         this.comments = comments;
     }
-    
+    //                          Operations
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void putMarks() {
-        //TODO
-        return null;
-    }
-    
-    /**
-    * @generated
-    */
-    public double getRaiting() {
-        //TODO
-        return null;
-    }
-    
-    /**
-    * @generated
-    */
-    public void markAttendance() {
-        //TODO
-        return null;
-    }
-    
-    /**
-    * @generated
-    */
+
+
     public News autoGenerate() {
-        //TODO
-        return null;
+        List<ResearchPaper> researchPapers = Database.DATA.getResearchPapers();
+
+
+
+        if (researchPapers.isEmpty()) {
+            return new News(NewsTopic.GENERAL, "No research papers found.", null);
+        }
+
+        // Подсчет цитирований для каждого автора
+        Map<User, Integer> authorCitations = new HashMap<>();
+        for (ResearchPaper paper : researchPapers) {
+            for (User author : paper.getAuthors()) {
+                authorCitations.put(
+                        author,
+                        authorCitations.getOrDefault(author, 0) + paper.getCitations()
+                );
+            }
+        }
+
+        // Поиск топового исследователя
+        Map.Entry<User, Integer> topAuthorEntry = authorCitations.entrySet()
+                .stream()
+                .max(Map.Entry.comparingByValue())
+                .orElse(null);
+
+        if (topAuthorEntry != null) {
+            User topAuthor = topAuthorEntry.getKey();
+            int totalCitations = topAuthorEntry.getValue();
+
+
+            String content = "Top Researcher: " + topAuthor.getName() +
+                    " has achieved " + totalCitations + " citations.";
+            return new News(NewsTopic.RESEARCH, content, topAuthor);
+        }
+
+
+        return new News(NewsTopic.GENERAL, "No top researcher could be identified.", null);
     }
     
     

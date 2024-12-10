@@ -1,12 +1,14 @@
-package utils
+package utils;
 
-diagram;
+import enums.Urgency;
+import users.Student;
+import users.User;
 
 
 /**
 * @generated
 */
-public class Complaint extends Post implements Comparable<Post> {
+public class Complaint extends Post {
     
     /**
     * @generated
@@ -16,36 +18,29 @@ public class Complaint extends Post implements Comparable<Post> {
     /**
     * @generated
     */
-    private Student2 student;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private Urgency getUrgencyLevel() {
-        return this.urgencyLevel;
+    private Student student;
+
+    public Complaint() {
+        super();
     }
-    
-    /**
-    * @generated
-    */
-    private Urgency setUrgencyLevel(Urgency urgencyLevel) {
+    public Complaint(String content, User author, Student student, Urgency urgencyLevel){
+        super(content, author);
+        this.student = student;
         this.urgencyLevel = urgencyLevel;
     }
-    
-    /**
-    * @generated
-    */
-    private Student2 getStudent() {
-        return this.student;
+    public Urgency getUrgencyLevel() {
+        return urgencyLevel;
     }
-    
-    /**
-    * @generated
-    */
-    private Student2 setStudent(Student2 student) {
+
+    public void setUrgencyLevel(Urgency urgencyLevel) {
+        this.urgencyLevel = urgencyLevel;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
         this.student = student;
     }
-    
 }

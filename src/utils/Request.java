@@ -1,79 +1,27 @@
-package utils
+package utils;
 
-diagram;
 
+import users.User;
 
 /**
 * @generated
 */
-public class Request extends EmployeePostPostComplaint implements CanViewCourse, CanViewStudents {
-    
-    /**
-    * @generated
-    */
-    private TeacherType teacherType;
-    
-    /**
-    * @generated
-    */
-    private Boolean isSigned;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private TeacherType getTeacherType() {
-        return this.teacherType;
-    }
-    
-    /**
-    * @generated
-    */
-    private TeacherType setTeacherType(TeacherType teacherType) {
-        this.teacherType = teacherType;
-    }
-    
-    /**
-    * @generated
-    */
-    private Boolean getIsSigned() {
-        return this.isSigned;
-    }
-    
-    /**
-    * @generated
-    */
-    private Boolean setIsSigned(Boolean isSigned) {
-        this.isSigned = isSigned;
-    }
-    
+public class Request extends Post{
+    private boolean isSigned;
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void putMarks() {
-        //TODO
-        return null;
+    public Request() {
+        super();
     }
-    
-    /**
-    * @generated
-    */
-    public double getRaiting() {
-        //TODO
-        return null;
+    public Request(String content, User author){
+        super(content, author);
     }
-    
-    /**
-    * @generated
-    */
-    public void markAttendance() {
-        //TODO
-        return null;
+
+
+    public boolean isSigned() {
+        return isSigned;
     }
-    
-    
+
+    public void setSigned(boolean signed) {
+        isSigned = signed;
+    }
 }

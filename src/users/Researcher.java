@@ -1,6 +1,8 @@
-package users
+package users;
 
-diagram;
+import utils.Post;
+
+
 
 
 /**
@@ -12,21 +14,27 @@ public class Researcher extends User {
     * @generated
     */
     private Integer ResearcherId;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private Integer getResearcherId() {
-        return this.ResearcherId;
+
+
+    public Integer getResearcherId() {
+        return ResearcherId;
     }
-    
-    /**
-    * @generated
-    */
-    private Integer setResearcherId(Integer ResearcherId) {
-        this.ResearcherId = ResearcherId;
+
+    public void setResearcherId(Integer researcherId) {
+        ResearcherId = researcherId;
     }
-    
+
+    public Researcher(String name, String lastName) {
+        super(name, lastName);
+    }
+
+    @Override
+    public void update(Post p) {
+
+    }
+
+    @Override
+    public void becomeResearcher() {
+
+    }
 }
