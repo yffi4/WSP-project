@@ -1,12 +1,11 @@
 package users;
 
-import academicUtilites.Course;
-import academicUtilites.GPA;
-import academicUtilites.GradeReport;
-import enums.Faculty;
-import papers.ResearchProject;
-import permissions.CanViewCourse;
-import permissions.CanViewTeachers;
+
+
+
+
+
+
 import utils.Post;
 
 import java.util.Comparator;
@@ -15,25 +14,21 @@ import java.util.Vector;
 
 
 
-/**
-* @generated
-*/
+import academicUtilites.Course;
+import academicUtilites.GPA;
+import academicUtilites.GradeReport;
+import enums.Faculty;
+import papers.ResearchProject;
+import permissions.CanViewCourse;
+import permissions.CanViewTeachers;
+
 public class Student extends User implements CanViewCourse, CanViewTeachers {
-    
-    /**
-    * @generated
-    */
     private String studentId;
-    
-    /**
-    * @generated
-    */
     private Faculty faculty;
-    
-    /**
-    * @generated
-    */
     private Researcher ResearcherSupervisor;
+
+
+    
 
     public Student(String name, String lastName) {
         super(name, lastName);
@@ -71,31 +66,24 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
     */
     public void RegisterForCourse() {
 
+
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<Course> ViewMyCourses() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<GradeReport> ViewMarks() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<GradeReport> ViewTranscript() {
-        //TODO
+        // TODO
         return null;
     }
+
     
     /**
     * @generated
@@ -109,38 +97,50 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
     */
     public void pickResearcherSupervisor() {
 
+
     }
-    
-    /**
-    * @generated
-    */
+
     public ResearchProject getDiplomaProject() {
-        //TODO
+        // TODO
         return null;
     }
+
+
+   
+        // TODO
+
     
     /**
     * @generated
     */
     public void startOrganisation () {
 
+
     }
-    
-    /**
-    * @generated
-    */
+
     public GPA getGPA() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
+
     public boolean lastYearStudent() {
-        //TODO
+        // TODO
         return false;
     }
+
+	@Override
+	public Vector<Teacher> viewTeacher() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	@Override
+	public Vector<Course> viewCourse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
     @Override
@@ -148,23 +148,15 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
 
     }
 
-    @Override
-    public Vector<Course> viewCourse() {
-        return null;
-    }
+    
 
-    @Override
-    public Vector<Teacher> viewTeacher() {
-        return null;
-    }
+    
 
-    @Override
-    public Vector<Teacher> viewTeacher(Comparator<Teacher> comparator) {
-        return null;
-    }
+    
 
     @Override
     public void becomeResearcher() {
 
     }
+
 }

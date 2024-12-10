@@ -1,5 +1,10 @@
 package users;
 
+
+import java.awt.print.Paper;
+
+
+
 import Database.Database;
 import enums.UserType;
 import journal.Journal;
@@ -14,35 +19,32 @@ import java.util.stream.Collectors;
 
 
 
-/**
-* @generated
-*/
+import journal.Subscriber;
+import utils.News;
+
+
 public abstract class User implements Subscriber,  CanBecomeResearcher, Comparable<User> {
 
 
-//    private String email;
+    private String name;
+    private String lastName;
+    private String password;
+
+
+    public Integer getId() {
+        return id;
+    }
 
     
-    /**
-    * @generated
-    */
-    private String name;
+
     
-    /**
-    * @generated
-    */
-    private String lastName;
+
     
-    /**
-    * @generated
-    */
-    private String password;
+
+    
 
     private Vector<Post> notifications;
 
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
 
 
     public User(String name, String lastName, String password) {
@@ -56,12 +58,17 @@ public abstract class User implements Subscriber,  CanBecomeResearcher, Comparab
     }
 
     public User(String name, String lastName) {
+
         this.name = name;
         this.lastName = lastName;
     }
 
+
+    
+
     public void setName(String name) {
         this.name = name;
+
     }
 
     public void setLastName(String lastName) {
@@ -69,16 +76,24 @@ public abstract class User implements Subscriber,  CanBecomeResearcher, Comparab
     }
 
     public String getPassword() {
+
         return password;
+
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-//    public String getEmail() {
-//        return email;
-//    }
+
+    
+
+   
+
+    
+
+
+
 
 
     public String getName() {
@@ -105,9 +120,7 @@ public abstract class User implements Subscriber,  CanBecomeResearcher, Comparab
         return Database.DATA.getNews().stream().sorted().collect(Collectors.toCollection(Vector::new));
     }
     
-    /**
-    * @generated
-    */
+    
     public void reviewPapers() {
         //TODO
         

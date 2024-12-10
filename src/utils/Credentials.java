@@ -1,5 +1,13 @@
 package utils;
 
+
+import enums.TeacherType;
+import permissions.CanViewCourse;
+import permissions.CanViewStudents;
+
+
+        // TODO
+
 import Database.Database;
 
 
@@ -79,5 +87,6 @@ public class Credentials {
             i++;
         }
         return username[0] + "_" + LN + "@uniresearch.kz";
+
     }
 }

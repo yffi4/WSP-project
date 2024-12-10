@@ -1,41 +1,20 @@
-package academicUtilites
+package academicUtilites;
 
-diagram;
+import java.util.Vector;
 
+import users.Student;
 
-/**
-* @generated
-*/
 public class Transcript extends GradeReport {
     
-    
-    
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public Vector <GradeReport> getGradeReport() {
-        //TODO
-        return null;
+    public Vector<GradeReport> getGradeReport(Student student) {
+        return new Vector<>();
     }
     
-    /**
-    * @generated
-    */
     public GPA getTotalGPA() {
-        //TODO
         return null;
     }
     
-    /**
-    * @generated
-    */
-    public String getStatistics() {
-        //TODO
+    public String getStatistics(Vector<GradeReport> reports) {
         return "";
     }
-    
-    
 }

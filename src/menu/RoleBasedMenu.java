@@ -1,6 +1,7 @@
 package menu;
 
 
+
 import enums.Options;
 import enums.UserType;
 import users.User;
@@ -138,6 +139,7 @@ public class RoleBasedMenu {
     }
     private void manageNews(){
         System.out.println("Manage news...");
+
     }
 }
 

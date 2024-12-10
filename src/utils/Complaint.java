@@ -5,19 +5,12 @@ import users.Student;
 import users.User;
 
 
-/**
-* @generated
-*/
 public class Complaint extends Post {
     
-    /**
-    * @generated
-    */
+    
     private Urgency urgencyLevel;
     
-    /**
-    * @generated
-    */
+    
     private Student student;
 
     public Complaint() {
@@ -43,4 +36,5 @@ public class Complaint extends Post {
     public void setStudent(Student student) {
         this.student = student;
     }
+
 }

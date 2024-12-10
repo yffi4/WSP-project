@@ -1,28 +1,31 @@
 package users;
 
-import utils.Complaint;
+import java.util.Vector;
+
 import utils.Proposal;
-import utils.Request;
+
 
 import java.util.Vector;
 
 
 
+import utils.Complaint;
+import utils.Request;
+
 
 
 public class Dean extends Employee {
-    
-
     private Vector<Request> requests;
-    
-
     private Vector<Proposal> proposals;
-    
-
     private String department;
+    private Vector<Complaint> complaints;
+
     
 
-    private Vector<Complaint> complaints;
+
+    
+
+    
 
     public Dean(String name, String lastName) {
         super(name, lastName);
@@ -32,12 +35,14 @@ public class Dean extends Employee {
         return requests;
     }
 
+
     public void setRequests(Vector<Request> requests) {
         this.requests = requests;
     }
 
     public Vector<Proposal> getProposals() {
         return proposals;
+
     }
 
     public void setProposals(Vector<Proposal> proposals) {
@@ -45,7 +50,11 @@ public class Dean extends Employee {
     }
 
     public String getDepartment() {
+
+        
+
         return department;
+
     }
 
     public void setDepartment(String department) {
@@ -53,37 +62,35 @@ public class Dean extends Employee {
     }
 
     public Vector<Complaint> getComplaints() {
+
         return complaints;
+
     }
 
     public void setComplaints(Vector<Complaint> complaints) {
         this.complaints = complaints;
     }
 
-    //                          Operations
+
     
-    /**
-    * @generated
-    */
     public void SignRequest() {
 
+
     }
-    
-    /**
-    * @generated
-    */
-    public boolean verifyProposal() {
-        //TODO
+
+    public boolean verifyProposal(Proposal prop) {
+        // TODO: Implement logic for verifying a proposal
         return false;
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<Request> viewRequests() {
-        //TODO
+        // TODO: Implement logic for viewing requests
         return null;
     }
+
+
+    
+
     
     /**
     * @generated
@@ -91,15 +98,11 @@ public class Dean extends Employee {
     public void rejectRequest() {
         //TODO
 
+
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<Complaint> viewComplaint() {
-        //TODO
+        // TODO: Implement logic for viewing complaints
         return null;
     }
-    
-    
 }

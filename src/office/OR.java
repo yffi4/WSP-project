@@ -1,32 +1,17 @@
-package office
+package office;
 
-diagram;
+import java.util.Vector;
 
+import users.Manager;
 
-/**
-* @generated
-*/
 public class OR {
-    
-    /**
-    * @generated
-    */
     private Vector<Manager> managers;
-    
-    
-    
-    /**
-    * @generated
-    */
+
     private Vector<Manager> getManagers() {
         return this.managers;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Manager> setManagers(Vector<Manager> managers) {
+
+    private void setManagers(Vector<Manager> managers) {
         this.managers = managers;
     }
-    
 }

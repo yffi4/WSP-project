@@ -1,79 +1,27 @@
-package journal
+package journal;
 
+
+import java.util.Date;
+import java.util.List;
 import java.util.Vector;
 
-diagram;
 
 
-/**
-* @generated
-*/
 public class Journal {
-    
-    /**
-    * @generated
-    */
-    private ;
-    
-    /**
-    * @generated
-    */
+
     private String title;
-    
-    /**
-    * @generated
-    */
     private Integer journalId;
-    
-    /**
-    * @generated
-    */
-    private String semester;
-    
-    /**
-    * @generated
-    */
-    private double grade;
-    
-    /**
-    * @generated
-    */
     private String publisher;
-    
-    /**
-    * @generated
-    */
-    private invalid attribute2;
-    
-    /**
-    * @generated
-    */
-    private invalid attribute;
-    
-    /**
-    * @generated
-    */
     private Date publicationDate;
-    
-    /**
-    * @generated
-    */
     private List<Article> articles;
-    
-    /**
-    * @generated
-    */
-    private invalid attribute3;
-    
-    /**
-    * @generated
-    */
     private Publish publish;
+
+
+ 
     
     
-    /**
-    * @generated
-    */
+    
+ 
     private Vector<Subscriber> subscribers;
 
 
@@ -85,288 +33,92 @@ public class Journal {
         this.subscribers = subscribers;
     }
 
-    /**
-    * @generated
-    */
-    public invalid getKdj() {
-        return this.kdj;
-    }
-    
-    /**
-    * @generated
-    */
-    public invalid setKdj(invalid kdj) {
-        this.kdj = kdj;
-    }
-    
-    /**
-    * @generated
-    */
-    private String getTitle() {
-        return this.title;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setTitle(String title) {
-        this.title = title;
-    }
-    
-    /**
-    * @generated
-    */
-    private Integer getJournalId() {
-        return this.journalId;
-    }
-    
-    /**
-    * @generated
-    */
-    private Integer setJournalId(Integer journalId) {
-        this.journalId = journalId;
-    }
-    
-    /**
-    * @generated
-    */
-    private String getSemester() {
-        return this.semester;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setSemester(String semester) {
-        this.semester = semester;
-    }
-    
-    /**
-    * @generated
-    */
-    private double getGrade() {
-        return this.grade;
-    }
-    
-    /**
-    * @generated
-    */
-    private double setGrade(double grade) {
-        this.grade = grade;
-    }
-    
-    /**
-    * @generated
-    */
-    private String getPublisher() {
-        return this.publisher;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-    
-    /**
-    * @generated
-    */
-    private invalid getAttribute2() {
-        return this.attribute2;
-    }
-    
-    /**
-    * @generated
-    */
-    private invalid setAttribute2(invalid attribute2) {
-        this.attribute2 = attribute2;
-    }
-    
-    /**
-    * @generated
-    */
-    private invalid getAttribute() {
-        return this.attribute;
-    }
-    
-    /**
-    * @generated
-    */
-    private invalid setAttribute(invalid attribute) {
-        this.attribute = attribute;
-    }
-    
-    /**
-    * @generated
-    */
-    private Date getPublicationDate() {
-        return this.publicationDate;
-    }
-    
-    /**
-    * @generated
-    */
-    private Date setPublicationDate(Date publicationDate) {
-        this.publicationDate = publicationDate;
-    }
-    
-    /**
-    * @generated
-    */
-    private List<Article> getArticles() {
-        return this.articles;
-    }
-    
-    /**
-    * @generated
-    */
-    private List<Article> setArticles(List<Article> articles) {
-        this.articles = articles;
-    }
-    
-    /**
-    * @generated
-    */
-    public invalid getAttribute3() {
-        return this.attribute3;
-    }
-    
-    /**
-    * @generated
-    */
-    public invalid setAttribute3(invalid attribute3) {
-        this.attribute3 = attribute3;
-    }
-    
-    /**
-    * @generated
-    */
-    private Publish getPublish() {
-        return this.publish;
-    }
-    
-    /**
-    * @generated
-    */
-    private Publish setPublish(Publish publish) {
-        this.publish = publish;
-    }
+
     
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public int getJournalId() {
-        //TODO
-        return 0;
+
+    public Journal(String title, Integer journalId, String publisher, Date publicationDate, Publish publish) {
+        this.title = title;
+        this.journalId = journalId;
+        this.publisher = publisher;
+        this.publicationDate = publicationDate;
+        this.publish = publish;
+        this.articles = new Vector<>();
     }
-    
-    /**
-    * @generated
-    */
-    public void setJournalId() {
-        //TODO
-        return null;
+
+
+    public Integer getJournalId() {
+        return journalId;
     }
-    
-    /**
-    * @generated
-    */
+
+    public void setJournalId(Integer journalId) {
+        this.journalId = journalId;
+    }
+
     public String getTitle() {
-        //TODO
-        return "";
+        return title;
     }
-    
-    /**
-    * @generated
-    */
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getPublisher() {
-        //TODO
-        return "";
+        return publisher;
     }
-    
-    /**
-    * @generated
-    */
-    public void setPublisher() {
-        //TODO
-        return null;
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
-    
-    /**
-    * @generated
-    */
+
     public Date getPublicationDate() {
-        //TODO
-        return new Date();
+        return publicationDate;
     }
-    
-    /**
-    * @generated
-    */
-    public void setPublicationDate() {
-        //TODO
-        return null;
+
+    public void setPublicationDate(Date publicationDate) {
+        this.publicationDate = publicationDate;
     }
-    
-    /**
-    * @generated
-    */
+
+
     public Vector<Article> getArticles() {
-        //TODO
-        return null;
+        return new Vector<>(articles);
     }
-    
-    /**
-    * @generated
-    */
-    public void setArticles() {
-        //TODO
-        return null;
+
+
+    public void setArticles(Vector<Article> articles) {
+        this.articles = articles;
     }
-    
-    /**
-    * @generated
-    */
-    public void addArticle() {
-        //TODO
-        return null;
+
+
+    public void addArticle(Article article) {
+        if (article != null) {
+            this.articles.add(article);
+        }
     }
-    
-    /**
-    * @generated
-    */
-    public void removeArticle() {
-        //TODO
-        return null;
+
+
+    public void removeArticle(Article article) {
+        this.articles.remove(article);
     }
-    
-    /**
-    * @generated
-    */
+
     public Publish getPublish() {
-        //TODO
-        return null;
+        return publish;
     }
-    
-    /**
-    * @generated
-    */
-    public void setPublish() {
-        //TODO
-        return null;
+
+    public void setPublish(Publish publish) {
+        this.publish = publish;
     }
-    
-    /**
-    * @generated
-    */
+
+
+    @Override
     public String toString() {
-        //TODO
-        return "";
+        return "Journal{" +
+                "title='" + title + '\'' +
+                ", journalId=" + journalId +
+                ", publisher='" + publisher + '\'' +
+                ", publicationDate=" + publicationDate +
+                ", articles=" + articles +
+                ", publish=" + publish +
+                '}';
     }
-    
-    
 }

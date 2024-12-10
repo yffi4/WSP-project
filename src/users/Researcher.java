@@ -1,5 +1,6 @@
 package users;
 
+
 import utils.Post;
 
 
@@ -8,12 +9,11 @@ import utils.Post;
 /**
 * @generated
 */
+
 public class Researcher extends User {
-    
-    /**
-    * @generated
-    */
     private Integer ResearcherId;
+
+   
 
 
     public Integer getResearcherId() {
@@ -21,7 +21,7 @@ public class Researcher extends User {
     }
 
     public void setResearcherId(Integer researcherId) {
-        ResearcherId = researcherId;
+          this.ResearcherId = researcherId;
     }
 
     public Researcher(String name, String lastName) {
@@ -35,6 +35,7 @@ public class Researcher extends User {
 
     @Override
     public void becomeResearcher() {
+
 
     }
 }

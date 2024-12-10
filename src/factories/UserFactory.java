@@ -1,6 +1,15 @@
 package factories;
 
 
+import enums.Faculty;
+import enums.ManagerType;
+import enums.TeacherType;
+import users.Student;
+import users.Teacher;
+import users.User;
+
+
+
 import enums.UserType;
 import users.*;
 
@@ -22,7 +31,6 @@ public class UserFactory {
         }
 
         return null;
+
     }
-    
-    
 }

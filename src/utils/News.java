@@ -88,7 +88,8 @@ public class News extends Post {
 
 
         return new News(NewsTopic.GENERAL, "No top researcher could be identified.", null);
+
     }
-    
-    
+
+	
 }

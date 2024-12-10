@@ -1,5 +1,6 @@
 package users;
 
+
 import utils.Post;
 
 
@@ -32,4 +33,5 @@ public class Employee extends User {
     public void becomeResearcher() {
 
     }
+
 }

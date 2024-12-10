@@ -1,51 +1,64 @@
-package academicUtilites
+package academicUtilites;
 
-diagram;
+import enums.Grades;
 
-
-/**
-* @generated
-*/
-public class GPA implements Comparable {
+public class GPA implements Comparable<GPA> {
     
-    /**
-    * @generated
-    */
     private double numericGrade;
-    
-    /**
-    * @generated
-    */
     private Grades letterGrade;
     
-    
-    
-    /**
-    * @generated
-    */
-    private double getNumericGrade() {
-        return this.numericGrade;
+    public GPA() {
     }
     
-    /**
-    * @generated
-    */
-    private double setNumericGrade(double numericGrade) {
+    public GPA(double numericGrade, Grades letterGrade) {
         this.numericGrade = numericGrade;
-    }
-    
-    /**
-    * @generated
-    */
-    private Grades getLetterGrade() {
-        return this.letterGrade;
-    }
-    
-    /**
-    * @generated
-    */
-    private Grades setLetterGrade(Grades letterGrade) {
         this.letterGrade = letterGrade;
     }
     
+    public double getNumericGrade() {
+        return numericGrade;
+    }
+    
+    public void setNumericGrade(double numericGrade) {
+        this.numericGrade = numericGrade;
+    }
+    
+    public Grades getLetterGrade() {
+        return letterGrade;
+    }
+    
+    public void setLetterGrade(Grades letterGrade) {
+        this.letterGrade = letterGrade;
+    }
+    
+    @Override
+    public int compareTo(GPA other) {
+        return Double.compare(this.numericGrade, other.numericGrade);
+    }
+    
+    @Override
+    public String toString() {
+        return "GPA{" +
+                "numericGrade=" + numericGrade +
+                ", letterGrade=" + letterGrade +
+                '}';
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof GPA)) return false;
+        GPA other = (GPA) obj;
+        return Double.compare(other.numericGrade, numericGrade) == 0 &&
+               letterGrade == other.letterGrade;
+    }
+    
+    @Override
+    public int hashCode() {
+        int result = 17;
+        long temp = Double.doubleToLongBits(numericGrade);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (letterGrade != null ? letterGrade.hashCode() : 0);
+        return result;
+    }
 }

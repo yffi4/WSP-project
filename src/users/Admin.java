@@ -1,5 +1,6 @@
 package users;
 
+
 import Database.Database;
 import enums.UserType;
 import factories.UserFactory;
@@ -12,15 +13,17 @@ import java.util.Vector;
 import java.util.stream.Collectors;
 
 
-/**
-* @generated
-*/
 public class Admin extends Employee implements CanSendRequests, CanBecomeResearcher {
-    
-    /**
-    * @generated
-    */
     private Vector<String> userLogs;
+
+
+    
+
+    
+
+    
+
+    
 
     public Admin(String name, String lastName) {
         super(name, lastName);
@@ -35,15 +38,7 @@ public class Admin extends Employee implements CanSendRequests, CanBecomeResearc
         this.userLogs = userLogs;
     }
 
-    /**
-
     
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
     public void addUser(String name, String lastName, UserType userType) {
         addUser( UserFactory.getUser(name, lastName, userType));
     }
@@ -64,25 +59,33 @@ public class Admin extends Employee implements CanSendRequests, CanBecomeResearc
                 map(n -> Database.DATA.getUsers().get(n)).filter(n -> n instanceof CanBecomeResearcher).forEach(n -> (n).deleteResearchAccount());
 
         Database.DATA.getUsers().keySet().removeIf(n -> n.getUsername().equals(username));
+
     }
-    
-    /**
-    * @generated
-    */
+
     public boolean updateUser() {
-        //TODO
+        // TODO
         return false;
     }
-    
-    /**
-    * @generated
-    */
+
     public String viewLogs() {
+
+        // TODO
+  
         String logFiles = "";
         List<String> logs = Database.DATA.getLogs().stream().collect(Collectors.toList());
         Collections.reverse(logs);
         logs.stream().limit(10).forEach(n -> logFiles.concat(n + "\n"));
         return logs.size()>0?logFiles: "No recent log files";
+    }
+
+    
+
+    @Override
+    public void becomeResearcher() {
+        // TODO
+    }
+
+        
     }
 
 
@@ -95,4 +98,5 @@ public class Admin extends Employee implements CanSendRequests, CanBecomeResearc
     public void deleteResearchAccount() {
 
     }
+
 }

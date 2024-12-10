@@ -1,51 +1,53 @@
-package academicUtilites
+package academicUtilites;
 
-diagram;
+import java.util.Date;
+import java.util.Vector;
 
-
-/**
-* @generated
-*/
 public class GradeBook {
     
-    /**
-    * @generated
-    */
     private Mark mark;
-    
-    /**
-    * @generated
-    */
     private Vector<Date> attendanceList;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private Mark getMark() {
-        return this.mark;
+
+    public GradeBook() {
+        this.attendanceList = new Vector<>();
     }
-    
-    /**
-    * @generated
-    */
-    private Mark setMark(Mark mark) {
+
+    public GradeBook(Mark mark, Vector<Date> attendanceList) {
         this.mark = mark;
-    }
-    
-    /**
-    * @generated
-    */
-    private Vector<Date> getAttendanceList() {
-        return this.attendanceList;
-    }
-    
-    /**
-    * @generated
-    */
-    private Vector<Date> setAttendanceList(Vector<Date> attendanceList) {
         this.attendanceList = attendanceList;
     }
-    
+
+    public Mark getMark() {
+        return mark;
+    }
+
+    public void setMark(Mark mark) {
+        this.mark = mark;
+    }
+
+    public Vector<Date> getAttendanceList() {
+        return new Vector<>(attendanceList);
+    }
+
+    public void setAttendanceList(Vector<Date> attendanceList) {
+        this.attendanceList = attendanceList;
+    }
+
+    public void addAttendance(Date date) {
+        if (date != null) {
+            this.attendanceList.add(date);
+        }
+    }
+
+    public void removeAttendance(Date date) {
+        this.attendanceList.remove(date);
+    }
+
+    @Override
+    public String toString() {
+        return "GradeBook{" +
+                "mark=" + mark +
+                ", attendanceList=" + attendanceList +
+                '}';
+    }
 }

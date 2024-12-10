@@ -1,144 +1,68 @@
-package academicUtilites
+package academicUtilites;
 
-diagram;
+import enums.Grades;
 
-
-/**
-* @generated
-*/
 public class Mark {
     
-    /**
-    * @generated
-    */
     private double firstAttestation;
-    
-    /**
-    * @generated
-    */
     private double secondAttestation;
-    
-    /**
-    * @generated
-    */
     private double finalExam;
-    
-    /**
-    * @generated
-    */
     private double tableNumeric;
-    
-    /**
-    * @generated
-    */
     private String tableAlphabetic;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private double getFirstAttestation() {
-        return this.firstAttestation;
+
+    public double getFirstAttestation() {
+        return firstAttestation;
     }
-    
-    /**
-    * @generated
-    */
-    private double setFirstAttestation(double firstAttestation) {
+
+    public void setFirstAttestation(double firstAttestation) {
         this.firstAttestation = firstAttestation;
     }
-    
-    /**
-    * @generated
-    */
-    private double getSecondAttestation() {
-        return this.secondAttestation;
+
+    public double getSecondAttestation() {
+        return secondAttestation;
     }
-    
-    /**
-    * @generated
-    */
-    private double setSecondAttestation(double secondAttestation) {
+
+    public void setSecondAttestation(double secondAttestation) {
         this.secondAttestation = secondAttestation;
     }
-    
-    /**
-    * @generated
-    */
-    private double getFinalExam() {
-        return this.finalExam;
+
+    public double getFinalExam() {
+        return finalExam;
     }
-    
-    /**
-    * @generated
-    */
-    private double setFinalExam(double finalExam) {
+
+    public void setFinalExam(double finalExam) {
         this.finalExam = finalExam;
     }
-    
-    /**
-    * @generated
-    */
-    private double getTableNumeric() {
-        return this.tableNumeric;
+
+    public double getTableNumeric() {
+        return tableNumeric;
     }
-    
-    /**
-    * @generated
-    */
-    private double setTableNumeric(double tableNumeric) {
+
+    public void setTableNumeric(double tableNumeric) {
         this.tableNumeric = tableNumeric;
     }
-    
-    /**
-    * @generated
-    */
-    private String getTableAlphabetic() {
-        return this.tableAlphabetic;
+
+    public String getTableAlphabetic() {
+        return tableAlphabetic;
     }
-    
-    /**
-    * @generated
-    */
-    private String setTableAlphabetic(String tableAlphabetic) {
+
+    public void setTableAlphabetic(String tableAlphabetic) {
         this.tableAlphabetic = tableAlphabetic;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
     public double getTotalMark() {
-        //TODO
-        return null;
+        return firstAttestation + secondAttestation + finalExam;
     }
-    
-    /**
-    * @generated
-    */
+
     public double getGPA() {
-        //TODO
-        return null;
+        return tableNumeric;
     }
-    
-    /**
-    * @generated
-    */
+
     public Grades getLetterGPA() {
-        //TODO
-        return Class diagram.Enumerations.Grades.A;
+        return Grades.A;
     }
-    
-    /**
-    * @generated
-    */
+
     public gradeTable initGradeTable() {
-        //TODO
         return null;
     }
-    
-    
 }

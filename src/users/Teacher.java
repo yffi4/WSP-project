@@ -1,40 +1,73 @@
 package users;
 
-import academicUtilites.Course;
-import enums.Faculty;
-import enums.TeacherType;
-import permissions.CanViewCourse;
-import permissions.CanViewStudents;
+
+
 
 import java.util.Comparator;
 import java.util.Vector;
 
 
 
-/**
-* @generated
-*/
+import academicUtilites.Course;
+import enums.Faculty;
+import enums.MarkType;
+import enums.TeacherType;
+import permissions.CanViewCourse;
+import permissions.CanViewStudents;
+import utils.Complaint;
+
 public class Teacher extends Employee implements CanViewCourse, CanViewStudents {
-    
-    /**
-    * @generated
-    */
     private Integer teacherId;
-    
-    /**
-    * @generated
-    */
     private Faculty faculty;
-    
-    /**
-    * @generated
-    */
     private TeacherType teacherType;
-    
-    /**
-    * @generated
-    */
     private Vector<Double> ratings;
+
+
+    public Integer getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
+    private TeacherType getTeacherType() {
+        return teacherType;
+    }
+
+    private void setTeacherType(TeacherType teacherType) {
+        this.teacherType = teacherType;
+    }
+
+    private Vector<Double> getRatings() {
+        return ratings;
+    }
+
+    private void setRatings(Vector<Double> ratings) {
+        this.ratings = ratings;
+    }
+
+    
+    public double getRaiting() {
+        // TODO
+        return 0.0;
+    }
+
+    
+
+	
+
+	
+
+	
 
     public Teacher(String name, String lastName) {
         super(name, lastName);
@@ -82,8 +115,4 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
         return null;
     }
 
-    @Override
-    public Vector<Student> viewStudent(Comparator<Student> comparator) {
-        return null;
-    }
 }

@@ -1,5 +1,8 @@
 package users;
 
+
+
+
 import enums.ManagerType;
 import utils.FundingRequest;
 import utils.Report;
@@ -9,20 +12,15 @@ import java.util.Vector;
 
 
 
-/**
-* @generated
-*/
+import academicUtilites.Course;
+
+
+import utils.News;
+
 public class Manager extends Employee {
-    
-    /**
-    * @generated
-    */
     private ManagerType managerType;
-    
-    /**
-    * @generated
-    */
     private Vector<FundingRequest> fundingRequests;
+
 
     public Manager(String name, String lastName) {
         super(name, lastName);
@@ -66,31 +64,21 @@ public class Manager extends Employee {
     */
     public void manageNews() {
 
+
     }
-    
-    /**
-    * @generated
-    */
+
     public Report createStatisticalReport() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<User> viewStudentsAndTeachers() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
-    public boolean approveFunding() {
-        //TODO
+
+    public boolean approveFunding(FundingRequest fr) {
+        // TODO
         return false;
     }
-    
-    
 }
