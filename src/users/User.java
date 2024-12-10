@@ -1,22 +1,27 @@
-package users
+package users;
 
-diagram;
+import Database.Database;
+import enums.UserType;
+import journal.Journal;
+import journal.Subscriber;
+import utils.News;
+import utils.Post;
+
+import java.util.Date;
+import java.util.Vector;
+import java.util.concurrent.Flow;
+import java.util.stream.Collectors;
+
 
 
 /**
 * @generated
 */
-public class User implements Subscriber, CanBecomeResearcher {
-    
-    /**
-    * @generated
-    */
-    private Integer id;
-    
-    /**
-    * @generated
-    */
-    private String email;
+public abstract class User implements Subscriber,  CanBecomeResearcher, Comparable<User> {
+
+
+//    private String email;
+
     
     /**
     * @generated
@@ -32,81 +37,58 @@ public class User implements Subscriber, CanBecomeResearcher {
     * @generated
     */
     private String password;
-    
-    
-    
-    /**
-    * @generated
-    */
-    public Integer getId() {
-        return this.id;
-    }
-    
-    /**
-    * @generated
-    */
-    public Integer setId(Integer id) {
-        this.id = id;
-    }
-    
-    /**
-    * @generated
-    */
-    private String getEmail() {
-        return this.email;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setEmail(String email) {
-        this.email = email;
-    }
-    
-    /**
-    * @generated
-    */
-    private String getName() {
-        return this.name;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setName(String name) {
+
+    private Vector<Post> notifications;
+
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+
+
+    public User(String name, String lastName, String password) {
         this.name = name;
+        this.lastName = lastName;
+        this.password = password;
+        this.notifications = new Vector<>();
     }
-    
-    /**
-    * @generated
-    */
-    private String getLastName() {
-        return this.lastName;
+
+    public User() {
     }
-    
-    /**
-    * @generated
-    */
-    private String setLastName(String lastName) {
+
+    public User(String name, String lastName) {
+        this.name = name;
         this.lastName = lastName;
     }
-    
-    /**
-    * @generated
-    */
-    private String getPassword() {
-        return this.password;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    
-    /**
-    * @generated
-    */
-    private String setPassword(String password) {
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
-    
 
-    //                          Operations                                  
+//    public String getEmail() {
+//        return email;
+//    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+    //                          Operations
     
     /**
     * @generated
@@ -115,37 +97,12 @@ public class User implements Subscriber, CanBecomeResearcher {
         //TODO
         return "";
     }
+
     
-    /**
-    * @generated
-    */
-    public String getName() {
-        //TODO
-        return "";
-    }
-    
-    /**
-    * @generated
-    */
-    public String getLastName() {
-        //TODO
-        return "";
-    }
-    
-    /**
-    * @generated
-    */
-    public String getEmail() {
-        //TODO
-        return "";
-    }
-    
-    /**
-    * @generated
-    */
+
     public Vector<News> ViewNews() {
-        //TODO
-        return null;
+
+        return Database.DATA.getNews().stream().sorted().collect(Collectors.toCollection(Vector::new));
     }
     
     /**
@@ -153,8 +110,46 @@ public class User implements Subscriber, CanBecomeResearcher {
     */
     public void reviewPapers() {
         //TODO
-        return null;
+        
     }
-    
-    
+    public Vector<Post> readNotifications(){
+        Vector<Post> allNotifications = new Vector<>(notifications);
+        notifications.clear();
+        return allNotifications;
+    }
+
+    public void subscribe(Journal journal){
+        if (journal != null && !journal.getSubscribers().contains(this)){
+            journal.getSubscribers().add(this);
+        }
+    }
+    public void unsubscribe(Journal journal){
+        if (journal != null && journal.getSubscribers().contains(this)){
+            journal.getSubscribers().remove(this);
+        }
+    }
+    public void addComment(News news, String comment){
+        if (news == null) {
+            throw new IllegalArgumentException("News cannot be null.");
+        }
+        if (comment == null || comment.trim().isEmpty()) {
+            throw new IllegalArgumentException("Comment cannot be empty.");
+        }
+
+
+        Post commentPost = new Post(new Date(), comment, this);
+
+        // Добавляем комментарий в список News
+        news.getComments().add(commentPost);
+
+        System.out.println("Comment added successfully: " + commentPost);
+
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return 0;
+    }
+
+
 }

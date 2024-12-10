@@ -1,6 +1,14 @@
-package users
+package users;
 
-diagram;
+import academicUtilites.Course;
+import enums.Faculty;
+import enums.TeacherType;
+import permissions.CanViewCourse;
+import permissions.CanViewStudents;
+
+import java.util.Comparator;
+import java.util.Vector;
+
 
 
 /**
@@ -27,65 +35,11 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
     * @generated
     */
     private Vector<Double> ratings;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private Integer getTeacherId() {
-        return this.teacherId;
+
+    public Teacher(String name, String lastName) {
+        super(name, lastName);
     }
-    
-    /**
-    * @generated
-    */
-    private Integer setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
-    }
-    
-    /**
-    * @generated
-    */
-    private Faculty getFaculty() {
-        return this.faculty;
-    }
-    
-    /**
-    * @generated
-    */
-    private Faculty setFaculty(Faculty faculty) {
-        this.faculty = faculty;
-    }
-    
-    /**
-    * @generated
-    */
-    private TeacherType getTeacherType() {
-        return this.teacherType;
-    }
-    
-    /**
-    * @generated
-    */
-    private TeacherType setTeacherType(TeacherType teacherType) {
-        this.teacherType = teacherType;
-    }
-    
-    /**
-    * @generated
-    */
-    private Vector<Double> getRatings() {
-        return this.ratings;
-    }
-    
-    /**
-    * @generated
-    */
-    private Vector<Double> setRatings(Vector<Double> ratings) {
-        this.ratings = ratings;
-    }
-    
+
 
     //                          Operations                                  
     
@@ -93,33 +47,43 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
     * @generated
     */
     public void putMarks() {
-        //TODO
-        return null;
+
     }
     
     /**
     * @generated
     */
-    public double getRaiting() {
-        //TODO
-        return null;
-    }
+//    public double getRaiting() {
+//        return null;
+//    }
     
     /**
     * @generated
     */
     public void markAttendance() {
-        //TODO
-        return null;
+
     }
     
     /**
     * @generated
     */
     public void sendComplaint() {
-        //TODO
+
+    }
+
+
+    @Override
+    public Vector<Course> viewCourse() {
         return null;
     }
-    
-    
+
+    @Override
+    public Vector<Student> viewStudent() {
+        return null;
+    }
+
+    @Override
+    public Vector<Student> viewStudent(Comparator<Student> comparator) {
+        return null;
+    }
 }

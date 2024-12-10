@@ -1,5 +1,7 @@
 package journal;
 
+import utils.Post;
+
 public interface Subscriber {
-    void subscribe();
+    void update(Post p);
 }

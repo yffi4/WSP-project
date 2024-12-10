@@ -1,13 +1,18 @@
 package papers;
 
 
+import users.Researcher;
+import users.User;
+
+import java.util.Vector;
+
 /**
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->
  * @generated
  */
 
-public class ResearchPaper extends Employee implements CanViewStudents, CanViewCourse
+public class ResearchPaper
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -34,14 +39,23 @@ public class ResearchPaper extends Employee implements CanViewStudents, CanViewC
 	 * @ordered
 	 */
 	
-	private Vector<Researher> authors;
-	
+	private Vector<Researcher> authors;
+
+	public Vector<Researcher> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(Vector<Researcher> authors) {
+		this.authors = authors;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 * @ordered
 	 */
+
 	
 	private Vector<String> pages;
 	
@@ -79,6 +93,10 @@ public class ResearchPaper extends Employee implements CanViewStudents, CanViewC
 	 */
 	public ResearchPaper(){
 		super();
+	}
+
+	public int getCitations() {
+		return citations;
 	}
 
 	/**
@@ -128,6 +146,7 @@ public class ResearchPaper extends Employee implements CanViewStudents, CanViewC
 		// TODO implement me
 		return "";	
 	}
-	
+
+
 }
 

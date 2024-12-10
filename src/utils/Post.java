@@ -1,17 +1,22 @@
-package utils
+package utils;
 
-diagram;
+import users.User;
+
+import java.io.Serializable;
+import java.util.Date;
+
+
 
 
 /**
 * @generated
 */
-public class Post implements Comparable<Post> {
+public class Post implements Comparable<Post>, Serializable {
     
     /**
     * @generated
     */
-    private Date2 date;
+    private Date date;
     
     /**
     * @generated
@@ -22,49 +27,48 @@ public class Post implements Comparable<Post> {
     * @generated
     */
     private User author;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private Date2 getDate() {
-        return this.date;
-    }
-    
-    /**
-    * @generated
-    */
-    private Date2 setDate(Date2 date) {
+
+    public Post(Date date, String content, User author) {
         this.date = date;
-    }
-    
-    /**
-    * @generated
-    */
-    private String getContent() {
-        return this.content;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setContent(String content) {
         this.content = content;
-    }
-    
-    /**
-    * @generated
-    */
-    private User getAuthor() {
-        return this.author;
-    }
-    
-    /**
-    * @generated
-    */
-    private User setAuthor(User author) {
         this.author = author;
     }
-    
+    public Post(String content, User author) {
+
+        this.content = content;
+        this.author = author;
+    }
+
+
+    public Post() {
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    @Override
+    public int compareTo(Post o) {
+        return 0;
+    }
 }

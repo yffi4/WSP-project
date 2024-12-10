@@ -1,6 +1,18 @@
-package users
+package users;
 
-diagram;
+import academicUtilites.Course;
+import academicUtilites.GPA;
+import academicUtilites.GradeReport;
+import enums.Faculty;
+import papers.ResearchProject;
+import permissions.CanViewCourse;
+import permissions.CanViewTeachers;
+import utils.Post;
+
+import java.util.Comparator;
+import java.util.Vector;
+
+
 
 
 /**
@@ -22,60 +34,43 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
     * @generated
     */
     private Researcher ResearcherSupervisor;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private String getStudentId() {
-        return this.studentId;
+
+    public Student(String name, String lastName) {
+        super(name, lastName);
     }
-    
-    /**
-    * @generated
-    */
-    private String setStudentId(String studentId) {
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
-    
-    /**
-    * @generated
-    */
-    private Faculty getFaculty() {
-        return this.faculty;
+
+    public Faculty getFaculty() {
+        return faculty;
     }
-    
-    /**
-    * @generated
-    */
-    private Faculty setFaculty(Faculty faculty) {
+
+    public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
     }
-    
-    /**
-    * @generated
-    */
-    private Researcher getResearcherSupervisor() {
-        return this.ResearcherSupervisor;
-    }
-    
-    /**
-    * @generated
-    */
-    private Researcher setResearcherSupervisor(Researcher ResearcherSupervisor) {
-        this.ResearcherSupervisor = ResearcherSupervisor;
-    }
-    
 
-    //                          Operations                                  
+    public Researcher getResearcherSupervisor() {
+        return ResearcherSupervisor;
+    }
+
+    public void setResearcherSupervisor(Researcher researcherSupervisor) {
+        ResearcherSupervisor = researcherSupervisor;
+    }
+
+
+    //                          Operations
     
     /**
     * @generated
     */
     public void RegisterForCourse() {
-        //TODO
-        return null;
+
     }
     
     /**
@@ -106,16 +101,14 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
     * @generated
     */
     public void RateTeacher() {
-        //TODO
-        return null;
+
     }
     
     /**
     * @generated
     */
     public void pickResearcherSupervisor() {
-        //TODO
-        return null;
+
     }
     
     /**
@@ -130,8 +123,7 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
     * @generated
     */
     public void startOrganisation () {
-        //TODO
-        return null;
+
     }
     
     /**
@@ -149,6 +141,30 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
         //TODO
         return false;
     }
-    
-    
+
+
+    @Override
+    public void update(Post p) {
+
+    }
+
+    @Override
+    public Vector<Course> viewCourse() {
+        return null;
+    }
+
+    @Override
+    public Vector<Teacher> viewTeacher() {
+        return null;
+    }
+
+    @Override
+    public Vector<Teacher> viewTeacher(Comparator<Teacher> comparator) {
+        return null;
+    }
+
+    @Override
+    public void becomeResearcher() {
+
+    }
 }

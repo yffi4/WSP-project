@@ -1,6 +1,12 @@
-package users
+package users;
 
-diagram;
+import enums.ManagerType;
+import utils.FundingRequest;
+import utils.Report;
+
+import java.util.Vector;
+
+
 
 
 /**
@@ -17,62 +23,49 @@ public class Manager extends Employee {
     * @generated
     */
     private Vector<FundingRequest> fundingRequests;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private ManagerType getManagerType() {
-        return this.managerType;
+
+    public Manager(String name, String lastName) {
+        super(name, lastName);
     }
-    
-    /**
-    * @generated
-    */
-    private ManagerType setManagerType(ManagerType managerType) {
+
+    public ManagerType getManagerType() {
+        return managerType;
+    }
+
+    public void setManagerType(ManagerType managerType) {
         this.managerType = managerType;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<FundingRequest> getFundingRequests() {
-        return this.fundingRequests;
+
+    public Vector<FundingRequest> getFundingRequests() {
+        return fundingRequests;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<FundingRequest> setFundingRequests(Vector<FundingRequest> fundingRequests) {
+
+    public void setFundingRequests(Vector<FundingRequest> fundingRequests) {
         this.fundingRequests = fundingRequests;
     }
-    
 
-    //                          Operations                                  
+
+    //                          Operations
     
     /**
     * @generated
     */
     public void assignCoursesToTeachers() {
-        //TODO
-        return null;
+
     }
     
     /**
     * @generated
     */
     public void assignStudentRegistration() {
-        //TODO
-        return null;
+
     }
     
     /**
     * @generated
     */
     public void manageNews() {
-        //TODO
-        return null;
+
     }
     
     /**

@@ -74,6 +74,7 @@ public class Database implements Serializable {
      */
     private Vector<String> logs = new Vector<String>();
 
+
     /**
      * all dean's offices
      */
@@ -112,6 +113,147 @@ public class Database implements Serializable {
      */
     private boolean registrationIsOpen;
 
+    private Researcher topCitedResearcher;
+
+    public Researcher getTopCitedResearcher() {
+        return topCitedResearcher;
+    }
+
+    public Vector<String> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(Vector<String> logs) {
+        this.logs = logs;
+    }
+
+    public HashMap<Credentials, User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(HashMap<Credentials, User> users) {
+        this.users = users;
+    }
+
+    public Vector<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Vector<Course> courses) {
+        this.courses = courses;
+    }
+
+    public Vector<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Vector<Subject> subjects) {
+        this.subjects = subjects;
+    }
+
+    public Vector<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(Vector<Teacher> teachers) {
+        this.teachers = teachers;
+    }
+
+    public Vector<Researcher> getResearchers() {
+        return researchers;
+    }
+
+    public void setResearchers(Vector<Researcher> researchers) {
+        this.researchers = researchers;
+    }
+
+    public Vector<ResearchProject> getResearchProjects() {
+        return researchProjects;
+    }
+
+    public void setResearchProjects(Vector<ResearchProject> researchProjects) {
+        this.researchProjects = researchProjects;
+    }
+
+    public Vector<ResearchPaper> getResearchPapers() {
+        return researchPapers;
+    }
+
+    public void setResearchPapers(Vector<ResearchPaper> researchPapers) {
+        this.researchPapers = researchPapers;
+    }
+
+    public Vector<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Vector<Student> students) {
+        this.students = students;
+    }
+
+    public Vector<News> getNews() {
+        return news;
+    }
+
+    public void setNews(Vector<News> news) {
+        this.news = news;
+    }
+
+    public HashMap<Faculty, DeanOffice> getOffices() {
+        return offices;
+    }
+
+    public void setOffices(HashMap<Faculty, DeanOffice> offices) {
+        this.offices = offices;
+    }
+
+    public Dean getRector() {
+        return rector;
+    }
+
+    public void setRector(Dean rector) {
+        this.rector = rector;
+    }
+
+    public HashMap<String, HashMap<Language, String>> getLanguageData() {
+        return languageData;
+    }
+
+    public void setLanguageData(HashMap<String, HashMap<Language, String>> languageData) {
+        this.languageData = languageData;
+    }
+
+    public Vector<Journal> getJournals() {
+        return journals;
+    }
+
+    public void setJournals(Vector<Journal> journals) {
+        this.journals = journals;
+    }
+
+    public Period getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(Period period) {
+        this.period = period;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public boolean isRegistrationIsOpen() {
+        return registrationIsOpen;
+    }
+
+    public void setRegistrationIsOpen(boolean registrationIsOpen) {
+        this.registrationIsOpen = registrationIsOpen;
+    }
 
     /**Deserialize database
      * @return database written on the file

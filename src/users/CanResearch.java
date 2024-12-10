@@ -1,5 +1,7 @@
 package users;
 
+import papers.ResearchPaper;
+
 import java.util.Vector;
 import papers.ResearchPaper;
 import utils.FundingRequest;

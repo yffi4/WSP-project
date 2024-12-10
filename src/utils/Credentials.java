@@ -1,121 +1,83 @@
-package utils
+package utils;
 
-diagram;
+import Database.Database;
 
 
-/**
-* @generated
-*/
-public class Credentials extends EmployeePostComplaint implements CanViewCourse, CanViewStudents {
-    
-    /**
-    * @generated
-    */
-    private TeacherType teacherType;
-    
-    /**
-    * @generated
-    */
+import java.util.Random;
+import java.util.stream.Collectors;
+
+
+public class Credentials {
     private String username;
-    
-    /**
-    * @generated
-    */
     private String password;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private TeacherType getTeacherType() {
-        return this.teacherType;
-    }
-    
-    /**
-    * @generated
-    */
-    private TeacherType setTeacherType(TeacherType teacherType) {
-        this.teacherType = teacherType;
-    }
-    
-    /**
-    * @generated
-    */
-    private String getUsername() {
-        return this.username;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setUsername(String username) {
+
+    public Credentials(String username, String password) {
         this.username = username;
-    }
-    
-    /**
-    * @generated
-    */
-    private String getPassword() {
-        return this.password;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setPassword(String password) {
         this.password = password;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void putMarks() {
-        //TODO
-        return null;
+    public Credentials() {
     }
-    
-    /**
-    * @generated
-    */
-    public double getRaiting() {
-        //TODO
-        return null;
+
+    public String getUsername() {
+        return username;
     }
-    
-    /**
-    * @generated
-    */
-    public void markAttendance() {
-        //TODO
-        return null;
+
+    public void setUsername(String username) {
+        this.username = username;
     }
-    
-    /**
-    * @generated
-    */
-    public String hashPassword() {
-        //TODO
-        return "";
+
+    public String getPassword() {
+        return password;
     }
-    
-    /**
-    * @generated
-    */
-    public String generateRandomPassword() {
-        //TODO
-        return "";
+
+    public void setPassword(String password) {
+        this.password = password;
     }
-    
-    /**
-    * @generated
-    */
-    public void generateUsername() {
-        //TODO
+
+    public static String hashPassword(String s){
+        int p = 31;
+        int mod = 1000000007;
+        long hashValue = 0;
+        long pPow = 1;
+        for (char c : s.toCharArray()){
+            hashValue = (hashValue + (c - 'a' + 1) * pPow) % mod;
+            pPow = (pPow * p) % mod;
+        }
+        return String.valueOf(hashValue);
+
     }
-    
-    
+
+    public static String generateRandomPassword(){
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789! @#$%^&*()-_=+";
+        int length = 10;
+        Random random = new Random();
+        String password = "";
+        for (int i = 0; i < length; i++){
+            int index = random.nextInt(characters.length());
+            password += characters.charAt(index);
+
+        }
+        return password;
+    }
+    public static String generateUserName(String firstName, String lastName){
+        firstName = firstName.toLowerCase();
+        final String LN = lastName.toLowerCase();
+        String[] username = {""};
+        username[0] += firstName.charAt(0);
+        int i = 1, j = 1;
+        while (Database.DATA.getUsers().keySet().stream()
+                .map(n -> n.getUsername())
+                .filter(n -> n.equals(username[0] + "_" + LN + "@uniresearch.kz"))
+                .collect(Collectors.toSet()).size() != 0){
+            if (i >= firstName.length()){
+                username[0] = firstName.substring(0, Math.min(i, firstName.length())) + j;
+                j++;
+                continue;
+            }
+            username[0] += firstName.charAt(i);
+            i++;
+        }
+        return username[0] + "_" + LN + "@uniresearch.kz";
+    }
 }
