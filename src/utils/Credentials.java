@@ -1,121 +1,63 @@
-package utils
+package utils;
 
-diagram;
+import enums.TeacherType;
+import permissions.CanViewCourse;
+import permissions.CanViewStudents;
 
-
-/**
-* @generated
-*/
-public class Credentials extends EmployeePostComplaint implements CanViewCourse, CanViewStudents {
-    
-    /**
-    * @generated
-    */
+public abstract class Credentials extends EmployeePostComplaint implements CanViewCourse, CanViewStudents{
+	
     private TeacherType teacherType;
-    
-    /**
-    * @generated
-    */
     private String username;
-    
-    /**
-    * @generated
-    */
     private String password;
-    
-    
-    
-    /**
-    * @generated
-    */
+
     private TeacherType getTeacherType() {
         return this.teacherType;
     }
-    
-    /**
-    * @generated
-    */
-    private TeacherType setTeacherType(TeacherType teacherType) {
+
+    private void setTeacherType(TeacherType teacherType) {
         this.teacherType = teacherType;
     }
-    
-    /**
-    * @generated
-    */
+
     private String getUsername() {
         return this.username;
     }
-    
-    /**
-    * @generated
-    */
-    private String setUsername(String username) {
+
+    private void setUsername(String username) {
         this.username = username;
     }
-    
-    /**
-    * @generated
-    */
+
     private String getPassword() {
         return this.password;
     }
-    
-    /**
-    * @generated
-    */
-    private String setPassword(String password) {
+
+    private void setPassword(String password) {
         this.password = password;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
     public void putMarks() {
-        //TODO
-        return null;
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public double getRaiting() {
-        //TODO
-        return null;
+        // TODO
+        return 0.0;
     }
-    
-    /**
-    * @generated
-    */
+
     public void markAttendance() {
-        //TODO
-        return null;
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public String hashPassword() {
-        //TODO
+        // TODO
         return "";
     }
-    
-    /**
-    * @generated
-    */
+
     public String generateRandomPassword() {
-        //TODO
+        // TODO
         return "";
     }
-    
-    /**
-    * @generated
-    */
+
     public void generateUsername() {
-        //TODO
+        // TODO
     }
-    
-    
 }

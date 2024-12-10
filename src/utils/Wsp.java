@@ -1,129 +1,90 @@
-package utils
+package utils;
 
-diagram;
+import java.util.Comparator;
+import java.util.Vector;
 
+import academicUtilites.Course;
+import enums.Language;
+import enums.TeacherType;
+import permissions.CanViewCourse;
+import permissions.CanViewStudents;
+import users.Student;
+import users.User;
 
-/**
-* @generated
-*/
 public class Wsp extends EmployeePostComplaint implements CanViewCourse, CanViewStudents {
-    
-    /**
-    * @generated
-    */
     private TeacherType teacherType;
-    
-    /**
-    * @generated
-    */
     private Language language;
-    
-    /**
-    * @generated
-    */
     private User loggedUser;
-    
-    
-    
-    /**
-    * @generated
-    */
+
     private TeacherType getTeacherType() {
         return this.teacherType;
     }
-    
-    /**
-    * @generated
-    */
-    private TeacherType setTeacherType(TeacherType teacherType) {
+
+    private void setTeacherType(TeacherType teacherType) {
         this.teacherType = teacherType;
     }
-    
-    /**
-    * @generated
-    */
+
     private Language getLanguage() {
         return this.language;
     }
-    
-    /**
-    * @generated
-    */
-    private Language setLanguage(Language language) {
+
+    private void setLanguage(Language language) {
         this.language = language;
     }
-    
-    /**
-    * @generated
-    */
+
     private User getLoggedUser() {
         return this.loggedUser;
     }
-    
-    /**
-    * @generated
-    */
-    private User setLoggedUser(User loggedUser) {
+
+    private void setLoggedUser(User loggedUser) {
         this.loggedUser = loggedUser;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
     public void putMarks() {
-        //TODO
-        return null;
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public double getRaiting() {
-        //TODO
-        return null;
+        // TODO
+        return 0.0;
     }
-    
-    /**
-    * @generated
-    */
+
     public void markAttendance() {
-        //TODO
-        return null;
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public String hashPassword() {
-        //TODO
+        // TODO
         return "";
     }
-    
-    /**
-    * @generated
-    */
+
     public void run() {
-        //TODO
-        return null;
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public void generateUsername() {
-        //TODO
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public void save() {
-        //TODO
-        return null;
+        // TODO
     }
-    
-    
+
+	@Override
+	public Vector<Student> viewStudent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector<Student> viewStudent(Comparator<Student> comparator) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector<Course> viewCourse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

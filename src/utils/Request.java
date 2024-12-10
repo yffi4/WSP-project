@@ -1,79 +1,62 @@
-package utils
+package utils;
 
-diagram;
+import java.util.Comparator;
+import java.util.Vector;
 
+import academicUtilites.Course;
+import enums.TeacherType;
+import permissions.CanViewCourse;
+import permissions.CanViewStudents;
+import users.Student;
 
-/**
-* @generated
-*/
 public class Request extends EmployeePostPostComplaint implements CanViewCourse, CanViewStudents {
-    
-    /**
-    * @generated
-    */
     private TeacherType teacherType;
-    
-    /**
-    * @generated
-    */
     private Boolean isSigned;
-    
-    
-    
-    /**
-    * @generated
-    */
+
     private TeacherType getTeacherType() {
         return this.teacherType;
     }
-    
-    /**
-    * @generated
-    */
-    private TeacherType setTeacherType(TeacherType teacherType) {
+
+    private void setTeacherType(TeacherType teacherType) {
         this.teacherType = teacherType;
     }
-    
-    /**
-    * @generated
-    */
+
     private Boolean getIsSigned() {
         return this.isSigned;
     }
-    
-    /**
-    * @generated
-    */
-    private Boolean setIsSigned(Boolean isSigned) {
+
+    private void setIsSigned(Boolean isSigned) {
         this.isSigned = isSigned;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
     public void putMarks() {
-        //TODO
-        return null;
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public double getRaiting() {
-        //TODO
-        return null;
+        // TODO
+        return 0.0;
     }
-    
-    /**
-    * @generated
-    */
+
     public void markAttendance() {
-        //TODO
-        return null;
+        // TODO
     }
-    
-    
+
+	@Override
+	public Vector<Student> viewStudent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector<Student> viewStudent(Comparator<Student> comparator) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector<Course> viewCourse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
