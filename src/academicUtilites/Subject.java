@@ -1,89 +1,43 @@
-package academicUtilites
+package academicUtilites;
 
-diagram;
+import java.util.Vector;
 
-
-/**
-* @generated
-*/
 public class Subject {
     
-    /**
-    * @generated
-    */
     private String name;
-    
-    /**
-    * @generated
-    */
     private Integer ects;
-    
-    /**
-    * @generated
-    */
     private String code;
+    private Vector<?> subjectType;
     
-    /**
-    * @generated
-    */
-    private Vector<Faculty, CourseType> subjectType;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private String getName() {
-        return this.name;
+    public String getName() {
+        return name;
     }
     
-    /**
-    * @generated
-    */
-    private String setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
     
-    /**
-    * @generated
-    */
-    private Integer getEcts() {
-        return this.ects;
+    public Integer getEcts() {
+        return ects;
     }
     
-    /**
-    * @generated
-    */
-    private Integer setEcts(Integer ects) {
+    public void setEcts(Integer ects) {
         this.ects = ects;
     }
     
-    /**
-    * @generated
-    */
-    private String getCode() {
-        return this.code;
+    public String getCode() {
+        return code;
     }
     
-    /**
-    * @generated
-    */
-    private String setCode(String code) {
+    public void setCode(String code) {
         this.code = code;
     }
     
-    /**
-    * @generated
-    */
-    private Vector<Faculty, CourseType> getSubjectType() {
-        return this.subjectType;
+    public Vector<?> getSubjectType() {
+        return subjectType;
     }
     
-    /**
-    * @generated
-    */
-    private Vector<Faculty, CourseType> setSubjectType(Vector<Faculty, CourseType> subjectType) {
+    public void setSubjectType(Vector<?> subjectType) {
         this.subjectType = subjectType;
     }
-    
 }

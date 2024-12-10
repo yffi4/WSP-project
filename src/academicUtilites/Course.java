@@ -1,298 +1,135 @@
-package academicUtilites
+package academicUtilites;
 
-diagram;
+import java.util.Vector;
+import enums.Period;
+import users.Student;
 
-
-/**
-* @generated
-*/
 public class Course extends Subject {
     
-    /**
-    * @generated
-    */
-    private invalid kdj;
-    
-    /**
-    * @generated
-    */
     private String name;
-    
-    /**
-    * @generated
-    */
     private Integer year;
+    private Period period;
+    private Vector<Lesson> lessons;
+    private Vector<Student> enrolledStudents;
     
-    /**
-    * @generated
-    */
-    private String semester;
-    
-    /**
-    * @generated
-    */
-    private double grade;
-    
-    /**
-    * @generated
-    */
-    private String period;
-    
-    /**
-    * @generated
-    */
-    private invalid attribute2;
-    
-    /**
-    * @generated
-    */
-    private invalid attribute;
-    
-    /**
-    * @generated
-    */
-    private Vector<Lesson> lesson;
-    
-    /**
-    * @generated
-    */
-    private invalid ;
-    
-    /**
-    * @generated
-    */
-    private invalid attribute3;
-    
-    
-    
-    /**
-    * @generated
-    */
-    public invalid getKdj() {
-        return this.kdj;
+    public Course() {
+        this.lessons = new Vector<>();
+        this.enrolledStudents = new Vector<>();
     }
     
-    /**
-    * @generated
-    */
-    public invalid setKdj(invalid kdj) {
-        this.kdj = kdj;
+    public Course(String name, Integer year, Period period) {
+        this.name = name;
+        this.year = year;
+        this.period = period;
+        this.lessons = new Vector<>();
+        this.enrolledStudents = new Vector<>();
     }
     
-    /**
-    * @generated
-    */
-    private String getName() {
-        return this.name;
+    public String getName() {
+        return name;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public Period getPeriod() {
+        return period;
+    }
+
+    public Vector<Lesson> getLessons() {
+        return new Vector<>(lessons);
+    }
+
+    public double getClassMaxAndMin() {
+        double max = Double.MIN_VALUE;
+        double min = Double.MAX_VALUE;
+        for (Lesson lesson : lessons) {
+            double value = lesson.getSomeMetric1();
+            if (value > max) {
+                max = value;
+            }
+            if (value < min) {
+                min = value;
+            }
+        }
+        return max - min;
+    }
+
+    public String outputBarChart() {
+        StringBuilder chart = new StringBuilder();
+        for (Lesson lesson : lessons) {
+            chart.append(lesson.getName()).append(": ");
+            int value = (int) lesson.getSomeMetric1();
+            for (int i = 0; i < value; i++) {
+                chart.append("*");
+            }
+            chart.append("\n");
+        }
+        return chart.toString();
+    }
+
+    public double getClassAvg() {
+        double sum = 0.0;
+        for (Lesson lesson : lessons) {
+            sum += lesson.getSomeMetric1();
+        }
+        return lessons.isEmpty() ? 0 : sum / lessons.size();
+    }
+
+    public String displayReport() {
+        StringBuilder report = new StringBuilder();
+        report.append("Course Report:\n");
+        report.append("Name: ").append(name).append("\n");
+        report.append("Year: ").append(year).append("\n");
+        report.append("Period: ").append(period).append("\n");
+        report.append("Number of Lessons: ").append(lessons.size()).append("\n");
+        report.append("Enrolled Students: ").append(enrolledStudents.size()).append("\n");
+        report.append("Average Metric: ").append(getClassAvg()).append("\n");
+        return report.toString();
+    }
+
+    public Vector<Student> getEnrolledStudents() {
+        return new Vector<>(enrolledStudents);
     }
     
-    /**
-    * @generated
-    */
-    private String setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
     
-    /**
-    * @generated
-    */
-    private Integer getYear() {
-        return this.year;
-    }
-    
-    /**
-    * @generated
-    */
-    private Integer setYear(Integer year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
     
-    /**
-    * @generated
-    */
-    private String getSemester() {
-        return this.semester;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setSemester(String semester) {
-        this.semester = semester;
-    }
-    
-    /**
-    * @generated
-    */
-    private double getGrade() {
-        return this.grade;
-    }
-    
-    /**
-    * @generated
-    */
-    private double setGrade(double grade) {
-        this.grade = grade;
-    }
-    
-    /**
-    * @generated
-    */
-    private String getPeriod() {
-        return this.period;
-    }
-    
-    /**
-    * @generated
-    */
-    private String setPeriod(String period) {
+    public void setPeriod(Period period) {
         this.period = period;
     }
     
-    /**
-    * @generated
-    */
-    private invalid getAttribute2() {
-        return this.attribute2;
+    public void setLessons(Vector<Lesson> lessons) {
+        this.lessons = lessons;
     }
     
-    /**
-    * @generated
-    */
-    private invalid setAttribute2(invalid attribute2) {
-        this.attribute2 = attribute2;
+    public void setEnrolledStudents(Vector<Student> enrolledStudents) {
+        this.enrolledStudents = enrolledStudents;
     }
     
-    /**
-    * @generated
-    */
-    private invalid getAttribute() {
-        return this.attribute;
+    public void addLesson(Lesson lesson) {
+        if (lesson != null) {
+            this.lessons.add(lesson);
+        }
     }
     
-    /**
-    * @generated
-    */
-    private invalid setAttribute(invalid attribute) {
-        this.attribute = attribute;
+    public void removeLesson(Lesson lesson) {
+        this.lessons.remove(lesson);
     }
     
-    /**
-    * @generated
-    */
-    private Vector<Lesson> getLesson() {
-        return this.lesson;
+    public void enrollStudent(Student student) {
+        if (student != null) {
+            this.enrolledStudents.add(student);
+        }
     }
     
-    /**
-    * @generated
-    */
-    private Vector<Lesson> setLesson(Vector<Lesson> lesson) {
-        this.lesson = lesson;
+    public void disenrollStudent(Student student) {
+        this.enrolledStudents.remove(student);
     }
-    
-    /**
-    * @generated
-    */
-    private invalid get() {
-        return this.;
-    }
-    
-    /**
-    * @generated
-    */
-    private invalid set(invalid ) {
-        this. = ;
-    }
-    
-    /**
-    * @generated
-    */
-    private invalid getAttribute3() {
-        return this.attribute3;
-    }
-    
-    /**
-    * @generated
-    */
-    private invalid setAttribute3(invalid attribute3) {
-        this.attribute3 = attribute3;
-    }
-    
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public String getName() {
-        //TODO
-        return "";
-    }
-    
-    /**
-    * @generated
-    */
-    public int getYear() {
-        //TODO
-        return 0;
-    }
-    
-    /**
-    * @generated
-    */
-    public Period getPeriod() {
-        //TODO
-        return Class diagram.Enumerations.Period.SPRING;
-    }
-    
-    /**
-    * @generated
-    */
-    public Vector<Lesson> getLessons() {
-        //TODO
-        return null;
-    }
-    
-    /**
-    * @generated
-    */
-    public double getClassMaxandMin() {
-        //TODO
-        return null;
-    }
-    
-    /**
-    * @generated
-    */
-    public String outputBarChart() {
-        //TODO
-        return "";
-    }
-    
-    /**
-    * @generated
-    */
-    public double getClassAvg() {
-        //TODO
-        return null;
-    }
-    
-    /**
-    * @generated
-    */
-    public String displayReport() {
-        //TODO
-        return "";
-    }
-    
-    /**
-    * @generated
-    */
-    public Vector<Student> getEnrolledStudents() {
-        //TODO
-        return null;
-    }
-    
-    
 }

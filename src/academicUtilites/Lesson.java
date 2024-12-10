@@ -1,51 +1,88 @@
-package academicUtilites
+package academicUtilites;
 
-diagram;
+import enums.LessonType;
+import users.Teacher;
 
 
-/**
-* @generated
-*/
 public class Lesson {
     
-    /**
-    * @generated
-    */
     private LessonType lessonType;
-    
-    /**
-    * @generated
-    */
     private Teacher instructor;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private LessonType getLessonType() {
-        return this.lessonType;
+    private String name;
+    private double someMetric;
+    private double someMetric1;
+
+
+    public Lesson() {
     }
-    
-    /**
-    * @generated
-    */
-    private LessonType setLessonType(LessonType lessonType) {
+
+
+    public Lesson(String name, LessonType lessonType, Teacher instructor, double someMetric, double someMetric1) {
+        this.name = name;
+        this.lessonType = lessonType;
+        this.instructor = instructor;
+        this.someMetric = someMetric;
+        this.someMetric1 = someMetric1;
+    }
+
+
+    public LessonType getLessonType() {
+        return lessonType;
+    }
+
+    public void setLessonType(LessonType lessonType) {
         this.lessonType = lessonType;
     }
-    
-    /**
-    * @generated
-    */
-    private Teacher getInstructor() {
-        return this.instructor;
+
+    public Teacher getInstructor() {
+        return instructor;
     }
-    
-    /**
-    * @generated
-    */
-    private Teacher setInstructor(Teacher instructor) {
+
+
+    public void setInstructor(Teacher instructor) {
         this.instructor = instructor;
     }
-    
+
+ 
+    public String getName() {
+        return name;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public double getSomeMetric() {
+        return someMetric;
+    }
+
+    public void setSomeMetric(double someMetric) {
+        this.someMetric = someMetric;
+    }
+
+ 
+    public double getSomeMetric1() {
+        return someMetric1;
+    }
+
+ 
+    public void setSomeMetric1(double someMetric1) {
+        this.someMetric1 = someMetric1;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Lesson{" +
+                "name='" + name + '\'' +
+                ", lessonType=" + lessonType +
+                ", instructor=" + instructor +
+                ", someMetric=" + someMetric +
+                ", someMetric1=" + someMetric1 +
+                '}';
+    }
+
+ 
 }
