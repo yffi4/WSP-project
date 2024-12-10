@@ -1,160 +1,81 @@
-package users
+package users;
 
-diagram;
+import java.awt.print.Paper;
+import java.util.Vector;
 
+import journal.Subscriber;
+import utils.News;
 
-/**
-* @generated
-*/
 public class User implements Subscriber, CanBecomeResearcher {
-    
-    /**
-    * @generated
-    */
     private Integer id;
-    
-    /**
-    * @generated
-    */
     private String email;
-    
-    /**
-    * @generated
-    */
     private String name;
-    
-    /**
-    * @generated
-    */
     private String lastName;
-    
-    /**
-    * @generated
-    */
     private String password;
-    
-    
-    
-    /**
-    * @generated
-    */
+
     public Integer getId() {
         return this.id;
     }
-    
-    /**
-    * @generated
-    */
-    public Integer setId(Integer id) {
+
+    public void setId(Integer id) {
         this.id = id;
     }
-    
-    /**
-    * @generated
-    */
-    private String getEmail() {
+
+    // Make these public if you need them accessible:
+    public String getEmail() {
         return this.email;
     }
-    
-    /**
-    * @generated
-    */
-    private String setEmail(String email) {
+
+    public void setEmail(String email) {
         this.email = email;
     }
-    
-    /**
-    * @generated
-    */
-    private String getName() {
+
+    public String getName() {
         return this.name;
     }
-    
-    /**
-    * @generated
-    */
-    private String setName(String name) {
+
+    public void setName(String name) {
         this.name = name;
     }
-    
-    /**
-    * @generated
-    */
-    private String getLastName() {
+
+    public String getLastName() {
         return this.lastName;
     }
-    
-    /**
-    * @generated
-    */
-    private String setLastName(String lastName) {
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
-    /**
-    * @generated
-    */
-    private String getPassword() {
+
+    public String getPassword() {
         return this.password;
     }
-    
-    /**
-    * @generated
-    */
-    private String setPassword(String password) {
+
+    public void setPassword(String password) {
         this.password = password;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public String login() {
-        //TODO
+    public String login(String email, String password) {
+        // TODO
         return "";
     }
-    
-    /**
-    * @generated
-    */
-    public String getName() {
-        //TODO
-        return "";
-    }
-    
-    /**
-    * @generated
-    */
-    public String getLastName() {
-        //TODO
-        return "";
-    }
-    
-    /**
-    * @generated
-    */
-    public String getEmail() {
-        //TODO
-        return "";
-    }
-    
-    /**
-    * @generated
-    */
+
     public Vector<News> ViewNews() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
-    public void reviewPapers() {
-        //TODO
-        return null;
+
+    public void reviewPapers(Paper p) {
+        // TODO
     }
-    
-    
+
+    @Override
+    public void becomeResearcher() {
+        // TODO
+    }
+
+	@Override
+	public void subscribe() {
+		// TODO Auto-generated method stub
+		
+	}
 }

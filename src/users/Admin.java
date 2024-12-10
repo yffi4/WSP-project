@@ -1,68 +1,38 @@
-package users
+package users;
 
-diagram;
+import java.util.Vector;
 
-
-/**
-* @generated
-*/
 public class Admin extends Employee implements CanSendRequests, CanBecomeResearcher {
-    
-    /**
-    * @generated
-    */
     private Vector<String> userLogs;
-    
-    
-    
-    /**
-    * @generated
-    */
+
     private Vector<String> getUserLogs() {
         return this.userLogs;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<String> setUserLogs(Vector<String> userLogs) {
+
+    private void setUserLogs(Vector<String> userLogs) {
         this.userLogs = userLogs;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
+    @Override
+    public void sendRequest(String request) {
+    }
+
     public void addUser() {
-        //TODO
-        return null;
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public boolean removeUser() {
-        //TODO
+        // TODO
         return false;
     }
-    
-    /**
-    * @generated
-    */
+
     public boolean updateUser() {
-        //TODO
+        // TODO
         return false;
     }
-    
-    /**
-    * @generated
-    */
+
     public String viewLogs() {
-        //TODO
+        // TODO
         return "";
     }
-    
-    
 }

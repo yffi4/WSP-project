@@ -1,154 +1,106 @@
-package users
+package users;
 
-diagram;
+import java.util.Comparator;
+import java.util.Vector;
 
+import academicUtilites.Course;
+import academicUtilites.GPA;
+import academicUtilites.GradeReport;
+import enums.Faculty;
+import papers.ResearchProject;
+import permissions.CanViewCourse;
+import permissions.CanViewTeachers;
 
-/**
-* @generated
-*/
 public class Student extends User implements CanViewCourse, CanViewTeachers {
-    
-    /**
-    * @generated
-    */
     private String studentId;
-    
-    /**
-    * @generated
-    */
     private Faculty faculty;
-    
-    /**
-    * @generated
-    */
     private Researcher ResearcherSupervisor;
-    
-    
-    
-    /**
-    * @generated
-    */
+
     private String getStudentId() {
         return this.studentId;
     }
-    
-    /**
-    * @generated
-    */
-    private String setStudentId(String studentId) {
+
+    private void setStudentId(String studentId) {
         this.studentId = studentId;
     }
-    
-    /**
-    * @generated
-    */
+
     private Faculty getFaculty() {
         return this.faculty;
     }
-    
-    /**
-    * @generated
-    */
-    private Faculty setFaculty(Faculty faculty) {
+
+    private void setFaculty(Faculty faculty) {
         this.faculty = faculty;
     }
-    
-    /**
-    * @generated
-    */
+
     private Researcher getResearcherSupervisor() {
         return this.ResearcherSupervisor;
     }
-    
-    /**
-    * @generated
-    */
-    private Researcher setResearcherSupervisor(Researcher ResearcherSupervisor) {
+
+    private void setResearcherSupervisor(Researcher ResearcherSupervisor) {
         this.ResearcherSupervisor = ResearcherSupervisor;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void RegisterForCourse() {
-        //TODO
-        return null;
+    public void RegisterForCourse(Course c) {
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<Course> ViewMyCourses() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<GradeReport> ViewMarks() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<GradeReport> ViewTranscript() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
-    public void RateTeacher() {
-        //TODO
-        return null;
+
+    public void RateTeacher(Teacher t, Integer rating) {
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
-    public void pickResearcherSupervisor() {
-        //TODO
-        return null;
+
+    public void pickResearcherSupervisor(Researcher r) {
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public ResearchProject getDiplomaProject() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
-    public void startOrganisation () {
-        //TODO
-        return null;
+
+    public void startOrganisation(String name) {
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public GPA getGPA() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
+
     public boolean lastYearStudent() {
-        //TODO
+        // TODO
         return false;
     }
-    
-    
+
+	@Override
+	public Vector<Teacher> viewTeacher() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector<Teacher> viewTeacher(Comparator<Teacher> comparator) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector<Course> viewCourse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

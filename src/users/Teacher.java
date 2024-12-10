@@ -1,125 +1,86 @@
-package users
+package users;
 
-diagram;
+import java.util.Comparator;
+import java.util.Vector;
 
+import academicUtilites.Course;
+import enums.Faculty;
+import enums.MarkType;
+import enums.TeacherType;
+import permissions.CanViewCourse;
+import permissions.CanViewStudents;
+import utils.Complaint;
 
-/**
-* @generated
-*/
 public class Teacher extends Employee implements CanViewCourse, CanViewStudents {
-    
-    /**
-    * @generated
-    */
     private Integer teacherId;
-    
-    /**
-    * @generated
-    */
     private Faculty faculty;
-    
-    /**
-    * @generated
-    */
     private TeacherType teacherType;
-    
-    /**
-    * @generated
-    */
     private Vector<Double> ratings;
-    
-    
-    
-    /**
-    * @generated
-    */
+
     private Integer getTeacherId() {
         return this.teacherId;
     }
-    
-    /**
-    * @generated
-    */
-    private Integer setTeacherId(Integer teacherId) {
+
+    private void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
     }
-    
-    /**
-    * @generated
-    */
+
     private Faculty getFaculty() {
         return this.faculty;
     }
-    
-    /**
-    * @generated
-    */
-    private Faculty setFaculty(Faculty faculty) {
+
+    private void setFaculty(Faculty faculty) {
         this.faculty = faculty;
     }
-    
-    /**
-    * @generated
-    */
+
     private TeacherType getTeacherType() {
         return this.teacherType;
     }
-    
-    /**
-    * @generated
-    */
-    private TeacherType setTeacherType(TeacherType teacherType) {
+
+    private void setTeacherType(TeacherType teacherType) {
         this.teacherType = teacherType;
     }
-    
-    /**
-    * @generated
-    */
+
     private Vector<Double> getRatings() {
         return this.ratings;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Double> setRatings(Vector<Double> ratings) {
+
+    private void setRatings(Vector<Double> ratings) {
         this.ratings = ratings;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void putMarks() {
-        //TODO
-        return null;
+    public void putMarks(Course c, Student s, double mark, MarkType mt) {
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public double getRaiting() {
-        //TODO
-        return null;
+        // TODO
+        return 0.0;
     }
-    
-    /**
-    * @generated
-    */
-    public void markAttendance() {
-        //TODO
-        return null;
+
+    public void markAttendance(Course c, Vector<Student> st, boolean present) {
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
-    public void sendComplaint() {
-        //TODO
-        return null;
+
+    public void sendComplaint(Complaint comp) {
+        // TODO
     }
-    
-    
+
+	@Override
+	public Vector<Student> viewStudent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector<Student> viewStudent(Comparator<Student> comparator) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector<Course> viewCourse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

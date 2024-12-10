@@ -1,103 +1,56 @@
-package users
+package users;
 
-diagram;
+import java.util.Vector;
 
+import academicUtilites.Course;
+import enums.ManagerType;
+import utils.FundingRequest;
+import utils.News;
 
-/**
-* @generated
-*/
 public class Manager extends Employee {
-    
-    /**
-    * @generated
-    */
     private ManagerType managerType;
-    
-    /**
-    * @generated
-    */
     private Vector<FundingRequest> fundingRequests;
-    
-    
-    
-    /**
-    * @generated
-    */
+
     private ManagerType getManagerType() {
         return this.managerType;
     }
-    
-    /**
-    * @generated
-    */
-    private ManagerType setManagerType(ManagerType managerType) {
+
+    private void setManagerType(ManagerType managerType) {
         this.managerType = managerType;
     }
-    
-    /**
-    * @generated
-    */
+
     private Vector<FundingRequest> getFundingRequests() {
         return this.fundingRequests;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<FundingRequest> setFundingRequests(Vector<FundingRequest> fundingRequests) {
+
+    private void setFundingRequests(Vector<FundingRequest> fundingRequests) {
         this.fundingRequests = fundingRequests;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void assignCoursesToTeachers() {
-        //TODO
-        return null;
+    public void assignCoursesToTeachers(Vector<Course> courses, Teacher teacher) {
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
-    public void assignStudentRegistration() {
-        //TODO
-        return null;
+
+    public void assignStudentRegistration(Student student) {
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
-    public void manageNews() {
-        //TODO
-        return null;
+
+    public void manageNews(News news) {
+        // TODO
     }
-    
-    /**
-    * @generated
-    */
+
     public Report createStatisticalReport() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<User> viewStudentsAndTeachers() {
-        //TODO
+        // TODO
         return null;
     }
-    
-    /**
-    * @generated
-    */
-    public boolean approveFunding() {
-        //TODO
+
+    public boolean approveFunding(FundingRequest fr) {
+        // TODO
         return false;
     }
-    
-    
 }

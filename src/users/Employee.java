@@ -1,25 +1,9 @@
-package users
+package users;
 
-diagram;
-
-
-/**
-* @generated
-*/
 public class Employee extends User {
-    
-    
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public String sendMassage() {
-        //TODO
+    public String sendMassage(String msg) {
+        // TODO
         return "";
     }
-    
-    
 }

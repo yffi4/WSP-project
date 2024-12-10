@@ -1,133 +1,69 @@
-package users
+package users;
 
-diagram;
+import java.util.Vector;
 
+import utils.Complaint;
+import utils.Request;
+import users.Proposal;
 
-/**
-* @generated
-*/
-public class Dean extends Employee {
-    
-    /**
-    * @generated
-    */
+public abstract class Dean{
     private Vector<Request> requests;
-    
-    /**
-    * @generated
-    */
     private Vector<Proposal> proposals;
-    
-    /**
-    * @generated
-    */
     private String department;
-    
-    /**
-    * @generated
-    */
     private Vector<Complaint> complaints;
-    
-    
-    
-    /**
-    * @generated
-    */
+
     private Vector<Request> getRequests() {
         return this.requests;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Request> setRequests(Vector<Request> requests) {
+
+    private void setRequests(Vector<Request> requests) {
         this.requests = requests;
     }
-    
-    /**
-    * @generated
-    */
+
     private Vector<Proposal> getProposals() {
         return this.proposals;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Proposal> setProposals(Vector<Proposal> proposals) {
+
+    private void setProposals(Vector<Proposal> proposals) {
         this.proposals = proposals;
     }
-    
-    /**
-    * @generated
-    */
+
     private String getDepartment() {
         return this.department;
     }
-    
-    /**
-    * @generated
-    */
-    private String setDepartment(String department) {
+
+    private void setDepartment(String department) {
         this.department = department;
     }
-    
-    /**
-    * @generated
-    */
+
     private Vector<Complaint> getComplaints() {
         return this.complaints;
     }
-    
-    /**
-    * @generated
-    */
-    private Vector<Complaint> setComplaints(Vector<Complaint> complaints) {
+
+    private void setComplaints(Vector<Complaint> complaints) {
         this.complaints = complaints;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void SignRequest() {
-        //TODO
-        return null;
+    public void signRequest(Request req) {
+        // TODO implement logic
     }
-    
-    /**
-    * @generated
-    */
-    public boolean verifyProposal() {
-        //TODO
+
+    public boolean verifyProposal(Proposal prop) {
+        // TODO implement logic
         return false;
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<Request> viewRequests() {
-        //TODO
+        // TODO implement logic
         return null;
     }
-    
-    /**
-    * @generated
-    */
-    public void rejectRequest() {
-        //TODO
-        return null;
+
+    public void rejectRequest(Request req) {
+        // TODO implement logic
     }
-    
-    /**
-    * @generated
-    */
+
     public Vector<Complaint> viewComplaint() {
-        //TODO
+        // TODO implement logic
         return null;
     }
-    
-    
 }
