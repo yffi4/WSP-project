@@ -1,60 +1,21 @@
-package exeptions
+package exeptions;
 
-diagram;
+public class InvalidManagerTypeException extends InvalidDiplomaProjectException {
+    private static final long serialVersionUID = 1L;
 
+	public InvalidManagerTypeException() {
+        super();
+    }
 
-/**
-* @generated
-*/
-public class InvalidManagerTypeException extends EmployeeException implements CanViewCourse, CanViewStudents {
-    
-    /**
-    * @generated
-    */
-    private TeacherType teacherType;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private TeacherType getTeacherType() {
-        return this.teacherType;
+    public InvalidManagerTypeException(String message) {
+        super(message);
     }
-    
-    /**
-    * @generated
-    */
-    private TeacherType setTeacherType(TeacherType teacherType) {
-        this.teacherType = teacherType;
-    }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void putMarks() {
-        //TODO
-        return null;
+    public InvalidManagerTypeException(String message, Throwable cause) {
+        super(message, cause);
     }
-    
-    /**
-    * @generated
-    */
-    public double getRaiting() {
-        //TODO
-        return null;
+
+    public InvalidManagerTypeException(Throwable cause) {
+        super(cause);
     }
-    
-    /**
-    * @generated
-    */
-    public void markAttendance() {
-        //TODO
-        return null;
-    }
-    
-    
 }
