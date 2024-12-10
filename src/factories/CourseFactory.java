@@ -1,16 +1,10 @@
-package factories
+package factories;
 
-diagram;
+import academicUtilites.Course;
+import users.Student;
 
-
-/**
-* @generated
-*/
 public class CourseFactory {
-    public Course getCourse() {
-        //TODO
-        return null;
+    public Course getCourse(Student student, int number) {
+        return new Course();
     }
-    
-    
 }

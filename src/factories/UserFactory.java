@@ -1,65 +1,35 @@
-package factories
+package factories;
 
-diagram;
+import enums.Faculty;
+import enums.ManagerType;
+import enums.TeacherType;
+import users.Student;
+import users.Teacher;
+import users.User;
 
-
-/**
-* @generated
-*/
 public class UserFactory {
-    
-    
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public User getUser() {
-        //TODO
-        return null;
+    public User getUser(String firstName, String lastName, String userType) {
+        return new User();
     }
-    
-    /**
-    * @generated
-    */
-    public User getUser() {
-        //TODO
-        return null;
+
+    public User getUser(String firstName, String lastName, ManagerType managerType) {
+        return new User();
     }
-    
-    /**
-    * @generated
-    */
-    public User getUser() {
-        //TODO
-        return null;
+
+    public User getUser(String firstName, String lastName, String teacherFirstName, String teacherLastName, TeacherType teacherType) {
+        return new User();
     }
-    
-    /**
-    * @generated
-    */
-    public User getUser() {
-        //TODO
-        return null;
+
+    public User getUser(String firstName, String lastName, String userType, Faculty faculty) {
+        return new User();
     }
-    
-    /**
-    * @generated
-    */
-    public User getUser() {
-        //TODO
-        return null;
+
+    public User getUser(Student student) {
+        return new User();
     }
-    
-    /**
-    * @generated
-    */
-    public User getUser() {
-        //TODO
-        return null;
+
+    public User getUser(Teacher teacher) {
+        return new User();
     }
-    
-    
 }
