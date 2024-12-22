@@ -1,10 +1,7 @@
 package menu;
 import Database.Database;
 import menu.actions.*;
-import users.Admin;
-import users.Employee;
-import users.Teacher;
-import users.User;
+import users.*;
 import utils.UserInput;
 
 import java.util.LinkedHashMap;
@@ -25,14 +22,21 @@ public class MenuManager {
         } else if (user instanceof Teacher) {
             TeacherActions teacherActions = new TeacherActions((Teacher)user);
             actions.putAll(getTeacherActions(teacherActions));
+        } else if (user instanceof Student) {
+            StudentActions studentActions = new StudentActions((Student)user);
+            actions.putAll(getStudentActions(studentActions));
         } else if (user instanceof Employee) {
             EmployeeActions employeeActions = new EmployeeActions((Employee)user);
             actions.putAll(getEmployeeActions(employeeActions));
+        }else if (user instanceof Manager) {
+            ManagerActions managerActions = new ManagerActions((Manager)user);
+            actions.putAll(getManagerActions(managerActions));
         } else {
             CommonActions commonActions = new CommonActions(user);
             actions.putAll(getCommonActions(commonActions));
         }
     }
+
 
     private Map<Integer, MenuAction> getCommonActions(CommonActions actions) {
         Map<Integer, MenuAction> map = new LinkedHashMap<>();
@@ -65,6 +69,33 @@ public class MenuManager {
         map.put(10, actions.putMarks());
         map.put(11, actions.markAttendance());
         map.put(12, actions.viewStudents());
+        return map;
+    }
+
+    private Map<Integer, MenuAction> getStudentActions(StudentActions actions) {
+        Map<Integer, MenuAction> map = getCommonActions(actions);
+        map.put(5, actions.viewGPA());
+        map.put(6, actions.viewCourses());
+        map.put(7, actions.registerForCourse());
+        map.put(8, actions.viewMarks());
+        map.put(9, actions.viewTranscript());
+        map.put(10, actions.rateTeacher());
+        map.put(11, actions.viewDiplomaProject());
+        map.put(12, actions.pickResearchSupervisor());
+        map.put(13, actions.createStudentOrganization());
+        return map;
+    }
+
+    private Map<Integer, MenuAction> getManagerActions(ManagerActions actions) {
+        Map<Integer, MenuAction> map = getEmployeeActions(actions);
+        map.put(7, actions.assignCoursesToTeachers());
+        map.put(8, actions.assignStudentRegistration());
+        map.put(9, actions.addNews());
+        map.put(10, actions.generateStudentReport());
+        map.put(11, actions.createStatisticalReport());
+        map.put(12, actions.viewStudentsAndTeachers());
+        map.put(13, actions.manageFundingRequests());
+        map.put(14, actions.addCourses());
         return map;
     }
 

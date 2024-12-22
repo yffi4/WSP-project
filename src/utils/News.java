@@ -31,6 +31,9 @@ public class News extends Post {
         this.topic = topic;
     }
 
+    public News(String title, String content) {
+    }
+
     public NewsTopic getTopic() {
         return topic;
     }

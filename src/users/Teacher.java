@@ -31,6 +31,7 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents,
     private TeacherType teacherType;
     private Vector<Double> ratings;
     private Researcher researcherStatus;
+    private static final long serialVersionUID = 7599636075654220246L;
     public Teacher(String firstName, String lastName, Faculty faculty, TeacherType teacherType) {
         super(firstName, lastName);
         this.faculty = faculty;
@@ -204,5 +205,9 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents,
     @Override
     public void run() throws IOException {
         new MenuManager(this).run();
+    }
+
+    public Researcher getResearcherStatus() {
+        return researcherStatus;
     }
 }

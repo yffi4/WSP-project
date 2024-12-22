@@ -10,6 +10,7 @@ import Database.Database;
 import academicUtilites.Transcript;
 import exeptions.InvalidRegistrationException;
 import factories.UserFactory;
+import menu.MenuManager;
 import utils.Post;
 
 import java.io.IOException;
@@ -221,7 +222,7 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
 
     @Override
     public void run() throws IOException {
-
+        new MenuManager(this).run();
     }
 
 
@@ -252,5 +253,9 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), studentId);
+    }
+
+    public void setRegistired(boolean b) {
+
     }
 }
