@@ -69,6 +69,7 @@ public class Database implements Serializable {
      */
     private Vector<Student> students = new Vector<Student>();
 
+    private Vector<StudentOrganisations> studentOrganisations = new Vector<>();
     /**
      * news
      */
@@ -122,6 +123,10 @@ public class Database implements Serializable {
 
     public Researcher getTopCitedResearcher() {
         return topCitedResearcher;
+    }
+
+    public Vector<StudentOrganisations> getStudentOrganisations() {
+        return studentOrganisations;
     }
 
     public Vector<String> getLogs() {

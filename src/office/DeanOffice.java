@@ -5,7 +5,7 @@ import java.util.Vector;
 import users.Dean;
 import users.Manager;
 
-public class DeanOffice {
+public class DeanOffice extends Dean {
     private Dean dean;
     private Vector<Manager> managers;
 

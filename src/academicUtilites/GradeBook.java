@@ -1,7 +1,10 @@
 package academicUtilites;
 
+import users.Student;
+
 import java.util.Date;
 import java.util.Vector;
+import java.util.stream.Collectors;
 
 public class GradeBook {
     
@@ -42,6 +45,7 @@ public class GradeBook {
     public void removeAttendance(Date date) {
         this.attendanceList.remove(date);
     }
+
 
     @Override
     public String toString() {

@@ -1,22 +1,24 @@
 package academicUtilites;
 
+import java.util.HashMap;
 import java.util.Vector;
 import enums.Period;
 import users.Student;
 
 public class Course extends Subject {
-    
+
     private String name;
     private Integer year;
     private Period period;
     private Vector<Lesson> lessons;
     private Vector<Student> enrolledStudents;
-    
+    private HashMap<Student, GradeBook> gradeBook = new HashMap<Student, GradeBook>();
+
     public Course() {
         this.lessons = new Vector<>();
         this.enrolledStudents = new Vector<>();
     }
-    
+
     public Course(String name, Integer year, Period period) {
         this.name = name;
         this.year = year;
@@ -24,7 +26,15 @@ public class Course extends Subject {
         this.lessons = new Vector<>();
         this.enrolledStudents = new Vector<>();
     }
-    
+
+    public HashMap<Student, GradeBook> getGradeBook() {
+        return gradeBook;
+    }
+
+    public void setGradeBook(HashMap<Student, GradeBook> gradeBook) {
+        this.gradeBook = gradeBook;
+    }
+
     public String getName() {
         return name;
     }
@@ -92,43 +102,43 @@ public class Course extends Subject {
     public Vector<Student> getEnrolledStudents() {
         return new Vector<>(enrolledStudents);
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public void setYear(Integer year) {
         this.year = year;
     }
-    
+
     public void setPeriod(Period period) {
         this.period = period;
     }
-    
+
     public void setLessons(Vector<Lesson> lessons) {
         this.lessons = lessons;
     }
-    
+
     public void setEnrolledStudents(Vector<Student> enrolledStudents) {
         this.enrolledStudents = enrolledStudents;
     }
-    
+
     public void addLesson(Lesson lesson) {
         if (lesson != null) {
             this.lessons.add(lesson);
         }
     }
-    
+
     public void removeLesson(Lesson lesson) {
         this.lessons.remove(lesson);
     }
-    
+
     public void enrollStudent(Student student) {
         if (student != null) {
             this.enrolledStudents.add(student);
         }
     }
-    
+
     public void disenrollStudent(Student student) {
         this.enrolledStudents.remove(student);
     }

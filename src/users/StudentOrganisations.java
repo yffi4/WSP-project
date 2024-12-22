@@ -11,7 +11,7 @@ public class StudentOrganisations {
         return this.name;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -19,7 +19,7 @@ public class StudentOrganisations {
         return this.head;
     }
 
-    private void setHead(Student head) {
+    public void setHead(Student head) {
         this.head = head;
     }
 

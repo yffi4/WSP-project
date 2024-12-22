@@ -8,10 +8,9 @@ import enums.TeacherType;
 import enums.UserType;
 import exeptions.InvalidManagerTypeException;
 import factories.UserFactory;
-import menu.Menu;
+import menu.MenuManager;
 import menu.Runnable;
 import utils.Credentials;
-import utils.Post;
 import utils.Request;
 
 import java.io.BufferedReader;
@@ -47,6 +46,7 @@ public class Admin extends Employee implements CanSendRequests, CanBecomeResearc
     
     public void addUser(String name, String lastName, UserType userType) throws IOException {
         addUser( UserFactory.getUser(name, lastName, userType));
+        Database.write();
     }
 
     public void addUser(User user) throws IOException {
@@ -106,51 +106,55 @@ public class Admin extends Employee implements CanSendRequests, CanBecomeResearc
 
     public void addUser(String givenName, String surname, UserType role, Faculty faculty) throws IOException{
         addUser(UserFactory.getUser(givenName, surname, role, faculty));
+        Database.write();
     }
     public void addUser(String firstName, String lastName, Faculty faculty, TeacherType role) throws IOException{
         addUser(UserFactory.getUser(firstName, lastName, faculty, role));
+        Database.write();
     }
     public void addUser(String firstName, String lastName, ManagerType role) throws InvalidManagerTypeException, IOException {
         addUser(UserFactory.getUser(firstName, lastName, role));
+        Database.write();
     }
 
     @Override
     public void run() throws IOException {
-        Runnable options[] = Menu.adminMenu;
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        while (true){
-            System.out.println("Select an action:\n" +
-                    "1.Display news\n" +
-                    "2.Check notifications\n" +
-                    "3.List research papers\n" +
-                    "4.Edit journals\n" +
-                    "5.Compose massage\n" +
-                    "6.Submit request\n" +
-                    "7.Add a new user\n" +
-                    "8.Delete an existing user\n" +
-                    "9.Access log files\n" +
-                    "10.Exit the program\n");
-            try{
-
-                int selection = Integer.parseInt(br.readLine());
-                if (selection == 10){
-                    exit();
-                    break;
-                }
-                if (selection < 1 || selection > 10){
-                    System.out.println("Invalid option. Try again.");
-                    continue;
-                }
-
-                options[selection - 1].runMenu(this);
-            }catch (NumberFormatException e){
-                System.out.println("Invalid input! Please enter a number.");
-            }catch (Exception e){
-                System.out.println("An error occurred while executing the action. Please try again.");
-                e.printStackTrace();
-                save();
-            }
-        }
+//        Runnable options[] = Menu.adminMenu;
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        while (true){
+//            System.out.println("Select an action:\n" +
+//                    "1.Display news\n" +
+//                    "2.Check notifications\n" +
+//                    "3.List research papers\n" +
+//                    "4.Edit journals\n" +
+//                    "5.Compose massage\n" +
+//                    "6.Submit request\n" +
+//                    "7.Add a new user\n" +
+//                    "8.Delete an existing user\n" +
+//                    "9.Access log files\n" +
+//                    "10.Exit the program\n");
+//            try{
+//
+//                int selection = Integer.parseInt(br.readLine());
+//                if (selection == 10){
+//                    exit();
+//                    break;
+//                }
+//                if (selection < 1 || selection > 10){
+//                    System.out.println("Invalid option. Try again.");
+//                    continue;
+//                }
+//
+//                options[selection - 1].runMenu(this);
+//            }catch (NumberFormatException e){
+//                System.out.println("Invalid input! Please enter a number.");
+//            }catch (Exception e){
+//                System.out.println("An error occurred while executing the action. Please try again.");
+//                e.printStackTrace();
+//                save();
+//            }
+//        }
+        new MenuManager(this).run();
     }
 
 

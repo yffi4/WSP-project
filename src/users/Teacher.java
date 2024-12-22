@@ -5,26 +5,37 @@ package users;
 
 import java.io.IOException;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Vector;
 
 
-
+import Database.Database;
 import academicUtilites.Course;
+import academicUtilites.GradeBook;
+import academicUtilites.Mark;
 import enums.Faculty;
 import enums.MarkType;
 import enums.TeacherType;
+import factories.UserFactory;
+import menu.MenuManager;
 import permissions.CanViewCourse;
 import permissions.CanViewStudents;
 import utils.Complaint;
+import utils.Request;
 
-public class Teacher extends Employee implements CanViewCourse, CanViewStudents {
+import javax.xml.crypto.Data;
+
+public class Teacher extends Employee implements CanViewCourse, CanViewStudents, CanBecomeResearcher, CanSendRequests {
     private Integer teacherId;
     private Faculty faculty;
     private TeacherType teacherType;
     private Vector<Double> ratings;
-
+    private Researcher researcherStatus;
     public Teacher(String firstName, String lastName, Faculty faculty, TeacherType teacherType) {
         super(firstName, lastName);
+        this.faculty = faculty;
+        this.teacherType = teacherType;
+        this.ratings = new Vector<>();
     }
 
 
@@ -44,26 +55,33 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
         this.faculty = faculty;
     }
 
-    private TeacherType getTeacherType() {
+    public TeacherType getTeacherType() {
         return teacherType;
     }
 
-    private void setTeacherType(TeacherType teacherType) {
+    public void setTeacherType(TeacherType teacherType) {
         this.teacherType = teacherType;
     }
 
-    private Vector<Double> getRatings() {
+    public Vector<Double> getRatings() {
         return ratings;
     }
 
-    private void setRatings(Vector<Double> ratings) {
+    public void setRatings(Vector<Double> ratings) {
         this.ratings = ratings;
     }
 
     
     public double getRaiting() {
         // TODO
-        return 0.0;
+        double sum = 0.0;
+        for (double rating : ratings){
+            sum += rating;
+
+        }
+        if (ratings.isEmpty()){
+            return 0.0;
+        }else return sum / ratings.size();
     }
 
     
@@ -78,10 +96,7 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
         super(name, lastName);
     }
 
-    @Override
-    public void run() throws IOException {
 
-    }
 
 
     //                          Operations                                  
@@ -89,8 +104,17 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
     /**
     * @generated
     */
-    public void putMarks() {
-
+    public void putMarks(Course course, Student student, double newMark, MarkType markType) {
+        Mark mark = new Mark();
+        if (course.getEnrolledStudents().contains(student)){
+            if (markType == MarkType.FIRST_ATT){
+                mark.setFirstAttestation(newMark);
+            }
+        } else if (markType == MarkType.SECOND_ATT) {
+            mark.setSecondAttestation(newMark);
+        }else {
+            mark.setFinalExam(newMark);
+        }
     }
     
     /**
@@ -103,22 +127,46 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
     /**
     * @generated
     */
-    public void markAttendance() {
+    public void markAttendance(Course course, Vector<Student> students, boolean present) {
+        if (!present){
+            return;
+        }
+
+        for (Student student:students){
+            if (!course.getEnrolledStudents().contains(student)){
+                continue;
+            }
+
+            course.getGradeBook()
+                    .computeIfAbsent(student, k-> new GradeBook())
+                    .getAttendanceList()
+                    .add(new Date());
+        }
+
 
     }
     
     /**
     * @generated
     */
-    public void sendComplaint() {
-
+    public void sendComplaint(Complaint complaint) {
+        Database.DATA.getOffices().get(complaint.getStudent().getFaculty()).getComplaints().add(complaint);
     }
 
 
     @Override
     public Vector<Course> viewCourse() {
-        return null;
+        Vector<Course> courses = new Vector<>();
+        Database.DATA.getCourses().stream()
+                .filter(course -> course.getYear() == Database.DATA.getYear() && course.getPeriod() == Database.DATA.getPeriod())
+                .forEach(course -> {
+                    if (course.getLessons().stream().anyMatch(lesson -> lesson.getInstructor().equals(this)) && !courses.contains(course)){
+                        courses.add(course);
+                    }
+                });
+        return courses;
     }
+
 
     @Override
     public Vector<Student> viewStudent() {
@@ -127,7 +175,9 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
 
     @Override
     public Vector<Student> viewStudent(Comparator<Student> comparator) {
-        return null;
+        Vector<Student> students = viewStudent();
+        students.sort(comparator);
+        return students;
     }
 
     @Override
@@ -137,11 +187,22 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
 
     @Override
     public void becomeResearcher() {
-
+        this.researcherStatus = (Researcher) new UserFactory().getUser(this);
     }
 
     @Override
     public void deleteResearchAccount() {
+        Database.DATA.getResearchers().remove(researcherStatus);
 
+    }
+
+    @Override
+    public void sendRequest(String request) {
+        Database.DATA.getRector().getRequests().add(new Request(request, this));
+    }
+
+    @Override
+    public void run() throws IOException {
+        new MenuManager(this).run();
     }
 }

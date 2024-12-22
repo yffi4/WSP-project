@@ -60,5 +60,11 @@ public class UserFactory {
     public static User getUser(String firstName, String lastName, ManagerType managerType) throws InvalidManagerTypeException {
         return new Manager(firstName, lastName, managerType);
     }
+    public static User getUser(Teacher teacher){
+        return new Researcher(teacher.getName(), teacher.getLastName(), teacher.getFaculty());
+    }
+    public User getUser(Student student) {
+        return new Researcher(student.getName(), student.getLastName(), student.getFaculty());
+    }
 
 }

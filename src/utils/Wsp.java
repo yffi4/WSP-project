@@ -3,7 +3,7 @@ package utils;
 import Database.Database;
 import enums.Language;
 import enums.UserType;
-import menu.RoleBasedMenu;
+
 import users.Admin;
 import users.User;
 
@@ -56,7 +56,7 @@ public class Wsp  {
                 System.out.println("Please enter your temporary password: ");
                 String tempPassword = br.readLine();
 
-                Credentials tempCred = new Credentials(username, Credentials.hashPassword(tempPassword));
+                Credentials tempCred = new Credentials(username, tempPassword);
                 if (Database.DATA.getUsers().containsKey(new Credentials(username, tempPassword))) {
 
                     loggedUser = Database.DATA.getUsers().get(new Credentials(username, tempPassword));

@@ -1,7 +1,9 @@
 package academicUtilites;
 
 import java.util.Vector;
+import java.util.stream.Collectors;
 
+import Database.Database;
 import users.Student;
 
 public class GradeReport {
@@ -32,8 +34,15 @@ public class GradeReport {
     public void setMark(Mark mark) {
         this.mark = mark;
     }
-    
-    public Vector<GradeReport> getGradeReport(Student student5) {
-        return new Vector<>();
+
+    public static Vector<GradeReport> getGradeReport(Student student) {
+        Vector<GradeReport> gradeReports = new Vector<GradeReport>();
+        Vector<Course> courses = student.viewCourse().stream().
+                filter(n->n.getPeriod()== Database.DATA.getPeriod() && n.getYear()==Database.DATA.getYear()).collect(Collectors.toCollection(Vector<Course>::new));
+
+        for(Course course : courses) {
+            gradeReports.add(new GradeReport(course, course.getGradeBook().get(student).getMark()));
+        }
+        return gradeReports;
     }
 }
