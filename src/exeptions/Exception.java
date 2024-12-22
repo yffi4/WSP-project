@@ -1,6 +1,4 @@
-package exeptions
-
-diagram;
+package exeptions;
 
 
 /**

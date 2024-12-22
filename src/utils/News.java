@@ -50,7 +50,7 @@ public class News extends Post {
 
 
 
-    public News autoGenerate() {
+    public static News autoGenerate() {
         List<ResearchPaper> researchPapers = Database.DATA.getResearchPapers();
 
 

@@ -6,7 +6,10 @@ public enum UserType {
 	STUDENT,
 	DEAN,
 	TEACHER,
-	RESEARCHER;
+	RESEARCHER,
+	MASTER,
+	PHD;
+
 
 
 }

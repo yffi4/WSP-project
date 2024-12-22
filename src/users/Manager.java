@@ -7,6 +7,7 @@ import enums.ManagerType;
 import utils.FundingRequest;
 import utils.Report;
 
+import java.io.IOException;
 import java.util.Vector;
 
 
@@ -24,6 +25,15 @@ public class Manager extends Employee {
 
     public Manager(String name, String lastName) {
         super(name, lastName);
+    }
+
+    public Manager(String name, String lastName, ManagerType role){
+        super(name, lastName);
+    }
+
+    @Override
+    public void run() throws IOException {
+
     }
 
     public ManagerType getManagerType() {
@@ -80,5 +90,21 @@ public class Manager extends Employee {
     public boolean approveFunding(FundingRequest fr) {
         // TODO
         return false;
+    }
+
+
+    @Override
+    public int compareTo(User o) {
+        return 0;
+    }
+
+    @Override
+    public void becomeResearcher() {
+
+    }
+
+    @Override
+    public void deleteResearchAccount() {
+
     }
 }

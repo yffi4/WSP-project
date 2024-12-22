@@ -15,6 +15,6 @@ public class CitationResearchPaperComparator implements Comparator<ResearchPaper
     @Override
     public int compare(ResearchPaper r1, ResearchPaper r2) {
         // TODO: Implement comparison logic based on citations
-        return 0;
+        return Integer.compare(r1.getCitations(), r2.getCitations());
     }
 }

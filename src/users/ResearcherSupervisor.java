@@ -11,6 +11,10 @@ public class ResearcherSupervisor extends Researcher {
     private Vector<Student> supervisedStudents;
     private Vector<ResearchPaper> superisedResearchPapers; // corrected spelling
 
+    public ResearcherSupervisor(String name, String lastName) {
+        super(name, lastName);
+    }
+
     private Integer getHIndex() {
         return this.hIndex;
     }

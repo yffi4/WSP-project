@@ -11,13 +11,17 @@ import permissions.CanViewStudents;
 import Database.Database;
 
 
+import java.io.Serializable;
+import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
 
 
-public class Credentials {
+public class Credentials implements Serializable
+{
     private String username;
     private String password;
+    private static final long serialVersionUID = 9050061191304715588L;
 
     public Credentials(String username, String password) {
         this.username = username;
@@ -60,33 +64,39 @@ public class Credentials {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789! @#$%^&*()-_=+";
         int length = 10;
         Random random = new Random();
-        String password = "";
+        StringBuilder password = new StringBuilder();
         for (int i = 0; i < length; i++){
             int index = random.nextInt(characters.length());
-            password += characters.charAt(index);
+            password.append(characters.charAt(index));
 
         }
-        return password;
+        return password.toString();
     }
     public static String generateUserName(String firstName, String lastName){
         firstName = firstName.toLowerCase();
         final String LN = lastName.toLowerCase();
-        String[] username = {""};
-        username[0] += firstName.charAt(0);
-        int i = 1, j = 1;
-        while (Database.DATA.getUsers().keySet().stream()
-                .map(n -> n.getUsername())
-                .filter(n -> n.equals(username[0] + "_" + LN + "@uniresearch.kz"))
-                .collect(Collectors.toSet()).size() != 0){
-            if (i >= firstName.length()){
-                username[0] = firstName.substring(0, Math.min(i, firstName.length())) + j;
-                j++;
-                continue;
-            }
-            username[0] += firstName.charAt(i);
-            i++;
-        }
-        return username[0] + "_" + LN + "@uniresearch.kz";
+        String username = firstName.charAt(0) + "_" + LN + "@uniresearch.kz";
+        int counter = 1;
 
+        String finalUsername = username;
+        while (Database.DATA.getUsers().keySet().stream()
+                .anyMatch(n -> n.getUsername().equals(finalUsername))){
+            username = firstName.charAt(0) + "_" + LN + counter + "@uniresearch.kz";
+        }
+        return username;
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Credentials that = (Credentials) o;
+        return Objects.equals(username, that.username) && Objects.equals(password, that.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, password);
     }
 }

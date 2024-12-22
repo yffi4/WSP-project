@@ -1,5 +1,7 @@
 package users;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Vector;
 
 import utils.Proposal;
@@ -14,13 +16,13 @@ import utils.Request;
 
 
 
-public class Dean extends Employee {
+public class Dean extends Employee implements Serializable {
     private Vector<Request> requests;
     private Vector<Proposal> proposals;
     private String department;
     private Vector<Complaint> complaints;
 
-    
+    private static final long serialVersionUID = 3189906044909095014L;
 
 
     
@@ -29,6 +31,15 @@ public class Dean extends Employee {
 
     public Dean(String name, String lastName) {
         super(name, lastName);
+    }
+
+    @Override
+    public void run() throws IOException {
+
+    }
+
+    public Dean() {
+        super();
     }
 
     public Vector<Request> getRequests() {
@@ -104,5 +115,20 @@ public class Dean extends Employee {
     public Vector<Complaint> viewComplaint() {
         // TODO: Implement logic for viewing complaints
         return null;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return 0;
+    }
+
+    @Override
+    public void becomeResearcher() {
+
+    }
+
+    @Override
+    public void deleteResearchAccount() {
+
     }
 }

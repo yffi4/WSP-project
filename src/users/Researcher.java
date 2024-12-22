@@ -1,9 +1,10 @@
 package users;
 
 
+import enums.Faculty;
 import utils.Post;
 
-
+import java.io.IOException;
 
 
 /**
@@ -27,6 +28,10 @@ public class Researcher extends User {
     public Researcher(String name, String lastName) {
         super(name, lastName);
     }
+    public Researcher(String name, String lastName, Faculty faculty){
+        super(name, lastName);
+
+    }
 
     @Override
     public void update(Post p) {
@@ -34,8 +39,23 @@ public class Researcher extends User {
     }
 
     @Override
+    public void run() throws IOException {
+
+    }
+
+    @Override
     public void becomeResearcher() {
 
 
+    }
+
+    @Override
+    public void deleteResearchAccount() {
+
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return 0;
     }
 }

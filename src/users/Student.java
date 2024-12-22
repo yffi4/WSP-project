@@ -8,6 +8,7 @@ package users;
 
 import utils.Post;
 
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.Vector;
 
@@ -32,6 +33,10 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
 
     public Student(String name, String lastName) {
         super(name, lastName);
+    }
+
+    public Student(String firstName, String lastName, Faculty facultyType) {
+        super(firstName, lastName);
     }
 
     public String getStudentId() {
@@ -134,9 +139,13 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
 		return null;
 	}
 
-	
+    @Override
+    public Vector<Teacher> viewTeacher(Comparator<Teacher> comparator) {
+        return null;
+    }
 
-	@Override
+
+    @Override
 	public Vector<Course> viewCourse() {
 		// TODO Auto-generated method stub
 		return null;
@@ -148,15 +157,24 @@ public class Student extends User implements CanViewCourse, CanViewTeachers {
 
     }
 
-    
+    @Override
+    public void run() throws IOException {
 
-    
+    }
 
-    
 
     @Override
     public void becomeResearcher() {
 
     }
 
+    @Override
+    public void deleteResearchAccount() {
+
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return 0;
+    }
 }

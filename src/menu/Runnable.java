@@ -1,5 +1,10 @@
 package menu;
 
+import exeptions.InvalidManagerTypeException;
+import users.User;
+
+import java.io.IOException;
+
 public interface Runnable {
-    void run();
+    void runMenu(User user) throws IOException, InvalidManagerTypeException;
 }

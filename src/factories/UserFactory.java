@@ -4,6 +4,7 @@ package factories;
 import enums.Faculty;
 import enums.ManagerType;
 import enums.TeacherType;
+import exeptions.InvalidManagerTypeException;
 import users.Student;
 import users.Teacher;
 import users.User;
@@ -30,7 +31,34 @@ public class UserFactory {
             return new Researcher(firstName, lastName);
         }
 
+
         return null;
 
     }
+    public static User getUser(String firstName, String lastName, UserType userType, Faculty facultyType) {
+
+        if(userType.equals(UserType.MASTER)) {
+            return new Master(firstName, lastName, facultyType);
+        }
+
+        else if(userType.equals(UserType.PHD)) {
+            return new PhDStudent(firstName, lastName, facultyType);
+        }
+
+        else if(userType.equals(UserType.RESEARCHER)) {
+            return new Researcher(firstName, lastName, facultyType);
+        }
+
+        else if(userType.equals(UserType.STUDENT)) {
+            return new Student(firstName, lastName, facultyType);
+        }
+        return null;
+    }
+    public static User getUser(String firstName, String lastName, Faculty faculty, TeacherType teacherType) {
+        return new Teacher(firstName, lastName,faculty, teacherType);
+    }
+    public static User getUser(String firstName, String lastName, ManagerType managerType) throws InvalidManagerTypeException {
+        return new Manager(firstName, lastName, managerType);
+    }
+
 }

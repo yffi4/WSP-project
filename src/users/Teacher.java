@@ -3,6 +3,7 @@ package users;
 
 
 
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.Vector;
 
@@ -21,6 +22,10 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
     private Faculty faculty;
     private TeacherType teacherType;
     private Vector<Double> ratings;
+
+    public Teacher(String firstName, String lastName, Faculty faculty, TeacherType teacherType) {
+        super(firstName, lastName);
+    }
 
 
     public Integer getTeacherId() {
@@ -73,6 +78,11 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
         super(name, lastName);
     }
 
+    @Override
+    public void run() throws IOException {
+
+    }
+
 
     //                          Operations                                  
     
@@ -115,4 +125,23 @@ public class Teacher extends Employee implements CanViewCourse, CanViewStudents 
         return null;
     }
 
+    @Override
+    public Vector<Student> viewStudent(Comparator<Student> comparator) {
+        return null;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return 0;
+    }
+
+    @Override
+    public void becomeResearcher() {
+
+    }
+
+    @Override
+    public void deleteResearchAccount() {
+
+    }
 }

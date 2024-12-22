@@ -7,9 +7,13 @@ import utils.Post;
 /**
 * @generated
 */
-public class Employee extends User {
+public abstract class Employee extends User {
     public Employee(String name, String lastName) {
         super(name, lastName);
+    }
+
+    public Employee() {
+        super();
     }
 
 
@@ -18,20 +22,12 @@ public class Employee extends User {
     /**
     * @generated
     */
-    public String sendMassage() {
-        //TODO
-        return "";
-    }
-
-
-    @Override
-    public void update(Post p) {
+    public void sendMassage(String massage, Employee employee) {
+        employee.getNotifications().add(new Post(massage, this));
 
     }
 
-    @Override
-    public void becomeResearcher() {
 
-    }
+
 
 }
