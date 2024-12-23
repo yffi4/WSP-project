@@ -2,8 +2,12 @@ package users;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Vector;
 
+import Database.Database;
+import menu.MenuManager;
+import utils.Post;
 import utils.Proposal;
 
 
@@ -35,7 +39,7 @@ public class Dean extends Employee implements Serializable {
 
     @Override
     public void run() throws IOException {
-
+        new MenuManager(this).run();
     }
 
     public Dean() {
@@ -84,20 +88,28 @@ public class Dean extends Employee implements Serializable {
 
 
     
-    public void SignRequest() {
-
+    public void SignRequest(Request request) {
+        request.isSigned();
 
     }
 
-    public boolean verifyProposal(Proposal prop) {
-        // TODO: Implement logic for verifying a proposal
-        return false;
+    public boolean verifyProposal(Proposal proposal) {
+        if (proposal.getTitle() != null && !proposal.getTitle().isEmpty() &&
+                proposal.getDescription() != null && proposal.getDescription().length() > 50 &&
+
+                proposal.getSubmissionDate() != null && proposal.getSubmissionDate().before(new Date())) {
+            proposal.setApproved(true);
+            return true;
+        } else {
+            proposal.setApproved(false);
+            return false;
+        }
     }
 
     public Vector<Request> viewRequests() {
-        // TODO: Implement logic for viewing requests
-        return null;
+        return Database.DATA.getRector().viewRequests();
     }
+
 
 
     
@@ -106,15 +118,16 @@ public class Dean extends Employee implements Serializable {
     /**
     * @generated
     */
-    public void rejectRequest() {
-        //TODO
+    public void rejectRequest(Request request) {
+        requests.remove(request);
+        request.getAuthor().getNotifications().add(new Post("Your request:" +request.getContent() + "was rejected", this));
 
 
     }
 
     public Vector<Complaint> viewComplaint() {
-        // TODO: Implement logic for viewing complaints
-        return null;
+        complaints.sort(null);
+        return complaints;
     }
 
     @Override

@@ -31,7 +31,10 @@ public class MenuManager {
         }else if (user instanceof Manager) {
             ManagerActions managerActions = new ManagerActions((Manager)user);
             actions.putAll(getManagerActions(managerActions));
-        } else {
+        }else if (user instanceof Dean) {
+            DeanActors deanActions = new DeanActors((Dean) user);
+            actions.putAll(getDeanActions(deanActions));
+        }else {
             CommonActions commonActions = new CommonActions(user);
             actions.putAll(getCommonActions(commonActions));
         }
@@ -51,6 +54,15 @@ public class MenuManager {
         Map<Integer, MenuAction> map = getCommonActions(actions);
         map.put(5, actions.sendMessage());
         map.put(6, actions.sendRequest());
+        return map;
+    }
+    private Map<Integer, MenuAction> getDeanActions(DeanActors actions) {
+        Map<Integer, MenuAction> map = new LinkedHashMap<>();
+        map.put(7, actions.viewRequests());
+        map.put(8, actions.signRequest());
+        map.put(9, actions.rejectRequest());
+        map.put(10, actions.verifyProposal());
+        map.put(11, actions.viewComplaints());
         return map;
     }
 
