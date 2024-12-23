@@ -1,6 +1,9 @@
 package journal;
 
 
+import papers.ResearchPaper;
+import utils.Post;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
@@ -23,6 +26,10 @@ public class Journal {
     
  
     private Vector<Subscriber> subscribers;
+
+    public Journal(String sampleJournal) {
+        this.title = sampleJournal;
+    }
 
 
     public Vector<Subscriber> getSubscribers() {
@@ -108,7 +115,14 @@ public class Journal {
     public void setPublish(Publish publish) {
         this.publish = publish;
     }
-
+    public void notifySubscribers(Post post) {
+        for(Subscriber s:subscribers) {
+            s.update(post);
+        }
+    }
+    public void publish(ResearchPaper rp) {
+        notifySubscribers(new Post("We published new Researcher Paper: " + rp.getTitle(), null));
+    }
 
     @Override
     public String toString() {

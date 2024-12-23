@@ -1,5 +1,6 @@
 package users;
 
+import journal.Journal;
 import papers.ResearchPaper;
 
 import java.util.Vector;
@@ -10,9 +11,9 @@ import java.util.Comparator;
 
 public interface CanResearch {
 	
-	Vector<ResearchPaper> printPaper(Comparator<ResearchPaper> comparator);
+	Vector<ResearchPaper> printPaper();
     int calculateIndex();
-    void publishPaper(String title, Vector<Researcher> authors, Vector<String> keywords);
-    void proposeProject(String name, Vector<Researcher> team, Vector<String> description);
+    void publishPaper(String title, Vector<Researcher> authors, Vector<String> papers, Journal journal);
+    void proposeProject(String name, Vector<Researcher> team, Vector<ResearchPaper> description);
     FundingRequest requestFunding(double amount);
 }

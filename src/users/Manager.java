@@ -14,6 +14,7 @@ import utils.FundingRequest;
 import utils.Report;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 
 
@@ -25,7 +26,7 @@ import utils.Request;
 
 import static factories.CourseFactory.getCourse;
 
-public class Manager extends Employee implements CanViewCourse, CanViewStudents, CanViewTeachers {
+public class Manager extends Employee implements CanViewCourse, CanViewStudents, CanViewTeachers, Serializable {
     private ManagerType managerType;
     private Vector<FundingRequest> fundingRequests;
 
@@ -153,7 +154,7 @@ public class Manager extends Employee implements CanViewCourse, CanViewStudents,
         return users;
     }
 
-    public boolean approveFunding(FundingRequest request) {
+    public static boolean approveFunding(FundingRequest request) {
         // TODO
         if (request == null || request.getAmount() <= 0 || request.getDescription() == null) {
             return false;

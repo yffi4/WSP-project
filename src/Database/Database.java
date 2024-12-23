@@ -11,11 +11,13 @@ import papers.ResearchPaper;
 import papers.ResearchProject;
 import users.*;
 import utils.Credentials;
+import utils.FundingRequest;
 import utils.News;
 import users.Dean;
 
 import java.io.*;
 import java.time.Year;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Vector;
@@ -64,6 +66,7 @@ public class Database implements Serializable {
      */
     private Vector<ResearchPaper> researchPapers = new Vector<ResearchPaper>();
 
+    private Vector<FundingRequest> fundingRequests = new Vector<>();
     /**
      * All students
      */
@@ -225,6 +228,22 @@ public class Database implements Serializable {
         this.rector = rector;
     }
 
+    public Vector<FundingRequest> getFundingRequests() {
+        return fundingRequests;
+    }
+
+    public void setFundingRequests(Vector<FundingRequest> fundingRequests) {
+        this.fundingRequests = fundingRequests;
+    }
+
+    public void setStudentOrganisations(Vector<StudentOrganisations> studentOrganisations) {
+        this.studentOrganisations = studentOrganisations;
+    }
+
+    public void setTopCitedResearcher(Researcher topCitedResearcher) {
+        this.topCitedResearcher = topCitedResearcher;
+    }
+
     public HashMap<String, HashMap<Language, String>> getLanguageData() {
         return languageData;
     }
@@ -311,6 +330,7 @@ public class Database implements Serializable {
         setPeriod((current.getMonth()<5?Period.SPRING:Period.FALL));
 
     }
+
 
 
 }

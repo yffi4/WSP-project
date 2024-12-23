@@ -1,11 +1,12 @@
 package users;
 
+import java.io.Serializable;
 import java.util.Vector;
 
 import papers.ResearchPaper;
 import papers.ResearchProject;
 
-public class ResearcherSupervisor extends Researcher {
+public class ResearcherSupervisor extends Researcher implements Serializable {
     private Integer hIndex;
     private Vector<ResearchProject> supervisedProjects;
     private Vector<Student> supervisedStudents;
@@ -46,4 +47,10 @@ public class ResearcherSupervisor extends Researcher {
     private void setSuperisedResearchPapers(Vector<ResearchPaper> superisedResearchPapers) {
         this.superisedResearchPapers = superisedResearchPapers;
     }
+    public boolean isSupervised(Researcher hIndex){
+        if (hIndex.calculateIndex() < 3){
+            return false;
+        }else return true;
+    }
+
 }

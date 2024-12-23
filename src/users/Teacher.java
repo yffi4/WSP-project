@@ -4,6 +4,7 @@ package users;
 
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Vector;
@@ -25,7 +26,7 @@ import utils.Request;
 
 import javax.xml.crypto.Data;
 
-public class Teacher extends Employee implements CanViewCourse, CanViewStudents, CanBecomeResearcher, CanSendRequests {
+public class Teacher extends Employee implements CanViewCourse, CanViewStudents, CanBecomeResearcher, CanSendRequests, Serializable {
     private Integer teacherId;
     private Faculty faculty;
     private TeacherType teacherType;

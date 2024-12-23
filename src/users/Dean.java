@@ -40,6 +40,7 @@ public class Dean extends Employee implements Serializable {
     @Override
     public void run() throws IOException {
         new MenuManager(this).run();
+
     }
 
     public Dean() {

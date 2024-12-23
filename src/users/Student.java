@@ -14,6 +14,7 @@ import menu.MenuManager;
 import utils.Post;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.lang.reflect.GenericArrayType;
 import java.util.Comparator;
 import java.util.Objects;
@@ -30,7 +31,7 @@ import papers.ResearchProject;
 import permissions.CanViewCourse;
 import permissions.CanViewTeachers;
 
-public class Student extends User implements CanViewCourse, CanViewTeachers {
+public class Student extends User implements CanViewCourse, CanViewTeachers, Serializable {
     private String studentId;
     private Faculty faculty;
     private Researcher researcherSupervisor;
